@@ -3,3 +3,32 @@ $color: steelblue;
 .my-flix {
   color: $color
 }
+
+h1 {
+ color: lightgray;
+ font-family: 'Lobster', cursive;
+ text-align: center;
+ font-size: 3em;
+}
+
+h2 {
+  color: lightgray;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+p {
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.columns {
+  column-count: 2;
+  column-gap: 40px;
+}
+
+html {
+  background-color: grey;
+  background-image: url("https://images.unsplash.com/photo-1567108485555-230071a08521?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80");
+  
+}
