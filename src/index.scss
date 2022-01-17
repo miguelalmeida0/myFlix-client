@@ -29,8 +29,14 @@ p {
 
 html {
   background-color: grey;
- 
-  
+  background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.movie-poster {
+  text-align: center;
 }
 
 .movie-view {
@@ -40,3 +46,13 @@ html {
 .label {
   color: white;
 }
+
+.font {
+  background-color: rgb(99, 99, 99);
+  align-items: center;
+}
+
+.movie-title {
+  color: white;
+}
+
