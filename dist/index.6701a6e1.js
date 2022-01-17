@@ -23181,7 +23181,8 @@ class MovieView extends _reactDefault.default.Component {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 29
                     },
-                    __self: this
+                    __self: this,
+                    children: "Back"
                 })
             ]
         }));
