@@ -4,7 +4,6 @@
   "description": "Client-side of my drive-in app",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,14 +17,12 @@
   },
   "homepage": "https://github.com/miguelalmeida0/myFlix-client#readme",
   "dependencies": {
+    "@parcel/transformer-sass": "^2.2.1",
     "axios": "^0.25.0",
-    "parcel": "^2.0.0-rc.0",
+    "parcel": "^2.2.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
     "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-alpha.3"
   }
 }
