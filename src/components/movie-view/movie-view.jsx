@@ -2,6 +2,15 @@ import React from 'react';
 
 export class MovieView extends React.Component {
 
+  keypressCallback(event) {
+    console.log(event.key);
+  }
+  componentDidMount() {
+    document.addEventListener('keypress', this.keypressCallback)
+  }
+
+
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -20,7 +29,7 @@ export class MovieView extends React.Component {
             <span className="value">{movie.Description} </span>
           </div>
           <div className="movie-genre">
-            <span className="label">Genre: </span>
+            <span className="label">Genre: Thriller </span>
             <span className="value">{movie.Genre}</span>
           </div>
           <div className="movie-director">
