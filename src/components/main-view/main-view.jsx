@@ -43,6 +43,13 @@ export class MainView extends React.Component {
     })
   }
 
+  /* User registers */
+  onRegistration(registration) {
+    this.setState({
+      registration,
+    });
+  }
+
   render() {
     const { movies, selectedMovie } = this.state;
 
@@ -65,3 +72,13 @@ export class MainView extends React.Component {
     );
   }
 }
+
+class Button extends React.Component {
+
+  render() {
+
+    return <button>{this.props.label}</button>;
+
+  }
+}
+
