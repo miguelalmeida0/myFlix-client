@@ -1,13 +1,10 @@
-<<<<<<< Updated upstream
+
 import React from 'react';
-=======
+
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/form';
 import Button from 'react-bootstrap/Button';
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 
 export class LoginView extends React.Component {
   constructor(props) {
@@ -43,7 +40,7 @@ export class LoginView extends React.Component {
     // this.props.onLoggedIn(username);
   }
 
-<<<<<<< Updated upstream
+
   render() {
     return (
       <form>
@@ -60,25 +57,22 @@ export class LoginView extends React.Component {
     );
   }
 }
-=======
-  return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
-  );
+return (
+  <Form>
+    <Form.Group controlId="formUsername">
+      <Form.Label>Username:</Form.Label>
+      <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+    </Form.Group>
+
+    <Form.Group controlId="formPassword">
+      <Form.Label>Password:</Form.Label>
+      <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+    </Form.Group>
+    <Button variant="primary" type="submit" onClick={handleSubmit}>
+      Submit
+    </Button>
+  </Form>
+);
 }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
