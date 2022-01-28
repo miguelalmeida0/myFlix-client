@@ -4,6 +4,9 @@ import React from 'react';
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/form';
 import Button from 'react-bootstrap/Button';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 export class LoginView extends React.Component {
@@ -75,4 +78,7 @@ export class LoginView extends React.Component {
     </Form>
   );
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

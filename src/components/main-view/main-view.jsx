@@ -43,6 +43,12 @@ export class MainView extends React.Component {
 
     if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
 
+<<<<<<< Updated upstream
+=======
+    // Before the movies have been loaded
+    if (movies.length === 0) return <div className="main-view" />;
+
+>>>>>>> Stashed changes
     <Container>
       <Row className="justify-content-md-center">
         {selectedMovie
@@ -60,6 +66,13 @@ export class MainView extends React.Component {
         }
       </Row>
     </Container>
+<<<<<<< Updated upstream
+=======
+
+
+  }
+}
+>>>>>>> Stashed changes
 
 
   }

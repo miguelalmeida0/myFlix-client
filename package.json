@@ -5,7 +5,12 @@
   "main": "index.html",
   "scripts": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "start": "parcel src/index.html",
+=======
+    "start": "parcel",
+    "build": "parcel build",
+>>>>>>> Stashed changes
 =======
     "start": "parcel",
     "build": "parcel build",
@@ -25,8 +30,11 @@
   "dependencies": {
     "axios": "^0.25.0",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "parcel": "^2.0.0-rc.0",
 =======
+=======
+>>>>>>> Stashed changes
     "prop-types": "^15.8.1",
 >>>>>>> Stashed changes
     "react": "^17.0.2",
@@ -35,7 +43,12 @@
   },
   "devDependencies": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "@parcel/transformer-sass": "^2.0.0-alpha.3"
+=======
+    "@parcel/transformer-sass": "^2.2.1",
+    "parcel": "^2.2.1"
+>>>>>>> Stashed changes
 =======
     "@parcel/transformer-sass": "^2.2.1",
     "parcel": "^2.2.1"
