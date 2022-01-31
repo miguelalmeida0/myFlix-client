@@ -1022,7 +1022,6 @@ var _indexScss = require("./index.scss");
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_containerDefault.default, {
-            fluid: true,
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_mainView.MainView, {
             }, void 0, false, {
                 fileName: "src/index.jsx",
@@ -25126,29 +25125,52 @@ class MainView extends _reactDefault.default.Component {
             lineNumber: 67,
             columnNumber: 37
         }, this));
-        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "main-view",
-            children: selectedMovie ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
-                movie: selectedMovie,
-                onBackClick: (newSelectedMovie)=>{
-                    this.setSelectedMovie(newSelectedMovie);
-                }
-            }, void 0, false, {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 72,
-                columnNumber: 13
-            }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
-                    movie: movie,
-                    onMovieClick: (newSelectedMovie)=>{
-                        this.setSelectedMovie(newSelectedMovie);
-                    }
-                }, movie._id, false, {
+        return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
+            children: [
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                    className: "main-view",
+                    children: selectedMovie ? /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
+                        className: "justify-content-md-center",
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
+                            md: 8,
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
+                                movie: selectedMovie,
+                                onBackClick: (newSelectedMovie)=>{
+                                    this.setSelectedMovie(newSelectedMovie);
+                                }
+                            }, void 0, false, {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 76,
+                                columnNumber: 19
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 75,
+                            columnNumber: 17
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 74,
+                        columnNumber: 15
+                    }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
+                            movie: movie,
+                            onMovieClick: (newSelectedMovie)=>{
+                                this.setSelectedMovie(newSelectedMovie);
+                            }
+                        }, movie._id, false, {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 81,
+                            columnNumber: 15
+                        }, this)
+                    )
+                }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 74,
-                    columnNumber: 13
-                }, this)
-            )
-        }, void 0, false, {
+                    lineNumber: 71,
+                    columnNumber: 9
+                }, this),
+                ");"
+            ]
+        }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
             lineNumber: 70,
             columnNumber: 7
@@ -25161,7 +25183,7 @@ class Button extends _reactDefault.default.Component {
             children: this.props.label
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 86,
+            lineNumber: 95,
             columnNumber: 12
         }, this));
     }
@@ -31262,6 +31284,8 @@ parcelHelpers.export(exports, "LoginView", ()=>LoginView
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _button = require("react-bootstrap/Button");
@@ -31279,154 +31303,132 @@ function LoginView(props) {
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
     };
     return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(Container, {
-        fluid: true,
-        className: "loginContainer",
-        children: [
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Navbar, {
-                bg: "navColor",
-                variant: "dark",
-                expand: "lg",
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Container, {
-                    fluid: true,
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Navbar.Brand, {
-                            href: "#home",
-                            children: "Drive-in"
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login.view.jsx",
-                            lineNumber: 26,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Nav, {
-                            className: "me-auto",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Nav.Link, {
-                                href: "#logout",
-                                children: "Login"
-                            }, void 0, false, {
-                                fileName: "src/components/login-view/login.view.jsx",
-                                lineNumber: 28,
-                                columnNumber: 13
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login.view.jsx",
-                            lineNumber: 27,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/login-view/login.view.jsx",
-                    lineNumber: 25,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "src/components/login-view/login.view.jsx",
-                lineNumber: 24,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Card, {
-                className: "loginCard",
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Card.Body, {
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Card.Title, {
-                            className: "text-center",
-                            children: "Welcome to Drive-in."
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login.view.jsx",
-                            lineNumber: 35,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Card.Subtitle, {
-                            className: "mb-2 text-muted text-center",
-                            children: "Please Login"
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login.view.jsx",
-                            lineNumber: 36,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default, {
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Row, {
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Col, {
+                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(CardGroup, {
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Card, {
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Card.Body, {
                             children: [
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
-                                    controlId: "formUsername",
-                                    children: [
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
-                                            children: "Username"
-                                        }, void 0, false, {
-                                            fileName: "src/components/login-view/login.view.jsx",
-                                            lineNumber: 40,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
-                                            type: "text",
-                                            onChange: (e)=>setUsername(e.target.value)
-                                        }, void 0, false, {
-                                            fileName: "src/components/login-view/login.view.jsx",
-                                            lineNumber: 41,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/login-view/login.view.jsx",
-                                    lineNumber: 39,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
-                                    controlId: "formPassword",
-                                    children: [
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
-                                            children: "Password"
-                                        }, void 0, false, {
-                                            fileName: "src/components/login-view/login.view.jsx",
-                                            lineNumber: 48,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
-                                            className: "mb-3",
-                                            type: "password",
-                                            onChange: (e)=>setPassword(e.target.value)
-                                        }, void 0, false, {
-                                            fileName: "src/components/login-view/login.view.jsx",
-                                            lineNumber: 49,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/login-view/login.view.jsx",
-                                    lineNumber: 47,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                    className: "loginButton",
-                                    variant: "secondary",
-                                    size: "lg",
-                                    type: "submit",
-                                    onClick: handleSubmit,
-                                    children: "Login"
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Card.Title, {
+                                    children: "Please login"
                                 }, void 0, false, {
                                     fileName: "src/components/login-view/login.view.jsx",
-                                    lineNumber: 56,
-                                    columnNumber: 13
+                                    lineNumber: 30,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default, {
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
+                                            controlId: "formUsername",
+                                            children: [
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
+                                                    children: "Username:"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/login-view/login.view.jsx",
+                                                    lineNumber: 33,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
+                                                    type: "text",
+                                                    onChange: (e)=>setUsername(e.target.value)
+                                                    ,
+                                                    placeholder: "Enter username"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/login-view/login.view.jsx",
+                                                    lineNumber: 34,
+                                                    columnNumber: 21
+                                                }, this),
+                                                usernameErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                                    children: usernameErr
+                                                }, void 0, false, {
+                                                    fileName: "src/components/login-view/login.view.jsx",
+                                                    lineNumber: 36,
+                                                    columnNumber: 37
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/login-view/login.view.jsx",
+                                            lineNumber: 32,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
+                                            controlId: "formPassword",
+                                            children: [
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
+                                                    children: "Password:"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/login-view/login.view.jsx",
+                                                    lineNumber: 40,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
+                                                    type: "password",
+                                                    onChange: (e)=>setPassword(e.target.value)
+                                                    ,
+                                                    placeholder: "Enter password"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/login-view/login.view.jsx",
+                                                    lineNumber: 41,
+                                                    columnNumber: 21
+                                                }, this),
+                                                passwordErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                                    children: passwordErr
+                                                }, void 0, false, {
+                                                    fileName: "src/components/login-view/login.view.jsx",
+                                                    lineNumber: 43,
+                                                    columnNumber: 37
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/login-view/login.view.jsx",
+                                            lineNumber: 39,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                                            variant: "outline-light",
+                                            type: "submit",
+                                            onClick: handleSubmit,
+                                            children: "Submit"
+                                        }, void 0, false, {
+                                            fileName: "src/components/login-view/login.view.jsx",
+                                            lineNumber: 45,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/login-view/login.view.jsx",
+                                    lineNumber: 31,
+                                    columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/login-view/login.view.jsx",
-                            lineNumber: 38,
-                            columnNumber: 11
+                            lineNumber: 29,
+                            columnNumber: 15
                         }, this)
-                    ]
-                }, void 0, true, {
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login.view.jsx",
+                        lineNumber: 28,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
                     fileName: "src/components/login-view/login.view.jsx",
-                    lineNumber: 34,
-                    columnNumber: 9
+                    lineNumber: 27,
+                    columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/login-view/login.view.jsx",
-                lineNumber: 33,
-                columnNumber: 7
+                lineNumber: 26,
+                columnNumber: 9
             }, this)
-        ]
-    }, void 0, true, {
+        }, void 0, false, {
+            fileName: "src/components/login-view/login.view.jsx",
+            lineNumber: 25,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
         fileName: "src/components/login-view/login.view.jsx",
-        lineNumber: 22,
+        lineNumber: 24,
         columnNumber: 5
     }, this));
 }
@@ -31447,7 +31449,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","axios":"jo6P5"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -31495,11 +31497,16 @@ class MovieCard extends _reactDefault.default.Component {
                             lineNumber: 16,
                             columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                            onClick: ()=>onMovieClick(movie)
-                            ,
-                            variant: "link",
-                            children: "Open"
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Link, {
+                            to: `/movies/${movie._id}`,
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                variant: "link",
+                                children: "Open"
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 18,
+                                columnNumber: 13
+                            }, this)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
                             lineNumber: 17,

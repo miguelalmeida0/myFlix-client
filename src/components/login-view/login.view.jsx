@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from "prop-types";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+
 
 
 
@@ -19,49 +21,38 @@ export function LoginView(props) {
   };
 
   return (
-    <Container fluid className="loginContainer" >
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Card.Title>Please login</Card.Title>
+                <Form>
+                  <Form.Group controlId="formUsername">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control type="text" onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
+                    {/* code added here to display validation error */}
+                    {usernameErr && <p>{usernameErr}</p>}
+                  </Form.Group>
 
-      <Navbar bg="navColor" variant="dark" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#home">Drive-in</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#logout">Login</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-
-      <Card className="loginCard">
-        <Card.Body>
-          <Card.Title className="text-center">Welcome to Drive-in.</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
-
-          <Form >
-            <Form.Group controlId="formUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={e => setUsername(e.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                className="mb-3"
-                type="password"
-                onChange={e => setPassword(e.target.value)}
-              />
-            </Form.Group>
-
-            <Button className="loginButton" variant="secondary" size="lg" type="submit" onClick={handleSubmit}>
-              Login
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
+                  <Form.Group controlId="formPassword">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Enter password" />
+                    {/* code added here to display validation error */}
+                    {passwordErr && <p>{passwordErr}</p>}
+                  </Form.Group>
+                  <Button variant="outline-light" type="submit" onClick={handleSubmit}>
+                    Submit
+                  </Button>
+                </Form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
     </Container>
   );
-
 }
 
 LoginView.propTypes = {
