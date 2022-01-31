@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from "prop-types";
+
+import { Container, Row, Col, Button } from 'react-bootstrap'
+
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -13,16 +17,55 @@ export function LoginView(props) {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <Container fluid className="loginContainer" >
+
+      <Navbar bg="navColor" variant="dark" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#home">Drive-in</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#logout">Login</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+
+      <Card className="loginCard">
+        <Card.Body>
+          <Card.Title className="text-center">Welcome to Drive-in.</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
+
+          <Form >
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                onChange={e => setUsername(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                className="mb-3"
+                type="password"
+                onChange={e => setPassword(e.target.value)}
+              />
+            </Form.Group>
+
+            <Button className="loginButton" variant="secondary" size="lg" type="submit" onClick={handleSubmit}>
+              Login
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+    </Container>
   );
+
 }
+
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+  }),
+  onLoggedIn: PropTypes.func.isRequired,
+};
