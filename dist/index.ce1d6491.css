@@ -57,4 +57,30 @@ html {
 .movie-card {
   color: white;
 }
+
+label.form-label {
+  color: white;
+}
+
+body {
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+  bottom: 5px;
+  width: 200px;
+  z-index: 10;
+  padding: 50px 20px;
+}
+
+button {
+  margin: 15px 0;
+  padding: 6%;
+  border-radius: 10px;
+  border: none;
+}
 /*# sourceMappingURL=index.ce1d6491.css.map */
