@@ -14,9 +14,9 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:1234/login', {
-      Username: username,
-      Password: password
+    axios.post(' https://driveindb.herokuapp.com/login', {
+      username: username,
+      password: password
     })
       .then(response => {
         const data = response.data;
@@ -26,6 +26,8 @@ export function LoginView(props) {
         console.log('no such user')
       });
   };
+
+
 
   return (
     <Form>

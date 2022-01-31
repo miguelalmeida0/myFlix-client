@@ -12,7 +12,7 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
+    console.log(username, password, email);
     /* Sends request to the server for authentication */
 
     props.onRegistration(username);
