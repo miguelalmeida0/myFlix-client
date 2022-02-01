@@ -14,20 +14,38 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(' https://driveindb.herokuapp.com/login', {
-      username: username,
-      password: password
+    props.onLoggedIn(username);
+    const isReq = validate();
+    if (isReq) {
+      axios.post('https://driveindb.herokuapp.com/login', {
+        username: username,
+        password: password
+      })
+        .then(response => {
+          const data = response.data;
+          props.onLoggedIn(data);
+        })
+        .catch(e => {
+          console.log('No such user')
+        });
+    };
+
+  }
+
+  getMovies(token) {
+    axios.get('https://driveindb.herokuapp.com/login', {
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        const data = response.data;
-        props.onLoggedIn(data);
+        // This will assign the result to the state
+        this.setState({
+          movies: response.data
+        });
       })
-      .catch(e => {
-        console.log('no such user')
+      .catch(function (error) {
+        console.log(error)
       });
-  };
-
-
+  }
 
   return (
     <Form>

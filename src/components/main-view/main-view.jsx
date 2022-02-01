@@ -40,10 +40,16 @@ export class MainView extends React.Component {
   }
 
   // This will update the 'user' property in state to that user when successfully login in
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user
+      user: authData.user.username
     })
+
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.username);
+    this.getMovies(authData.token);
   }
 
 
@@ -52,6 +58,21 @@ export class MainView extends React.Component {
     this.setState({
       registration,
     });
+  }
+
+  getMovies(token) {
+    axios.get('https://driveindb.herokuapp.com/login', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // This will assign the result to the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error)
+      });
   }
 
   render() {
