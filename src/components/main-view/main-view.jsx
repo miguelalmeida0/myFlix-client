@@ -62,7 +62,7 @@ export class MainView extends React.Component {
 
   getMovies(token) {
     axios.get('https://driveindb.herokuapp.com/login', {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer${token}` }
     })
       .then(response => {
         // This will assign the result to the state
