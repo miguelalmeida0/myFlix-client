@@ -32,20 +32,7 @@ export function LoginView(props) {
 
   }
 
-  getMovies(token) {
-    axios.get('https://driveindb.herokuapp.com/login', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        // This will assign the result to the state
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error)
-      });
-  }
+
 
   return (
     <Form>

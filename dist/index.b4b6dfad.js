@@ -25076,13 +25076,13 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://driveindb.herokuapp.com/movies').then((response)=>{
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
             this.setState({
-                movies: response.data
+                user: localStorage.getItem('user')
             });
-        }).catch((error)=>{
-            console.log(error);
-        });
+            this.getMovies(accessToken);
+        }
     }
     setSelectedMovie(movie) {
         this.setState({
@@ -25099,9 +25099,30 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('user', authData.user.username);
         this.getMovies(authData.token);
     }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
     /* User registers */ onRegistration(registration) {
         this.setState({
             registration
+        });
+    }
+    getMovies(token) {
+        _axiosDefault.default.get('https://driveindb.herokuapp.com/login', {
+            headers: {
+                Authorization: `Bearer${token}`
+            }
+        }).then((response)=>{
+            // This will assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        }).catch(function(error) {
+            console.log(error);
         });
     }
     render() {
@@ -25110,7 +25131,7 @@ class MainView extends _reactDefault.default.Component {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 67,
+            lineNumber: 88,
             columnNumber: 23
         }, this));
         // User Registration
@@ -25118,7 +25139,7 @@ class MainView extends _reactDefault.default.Component {
             onRegistration: (register)=>this.onRegistration(register)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 71,
+            lineNumber: 92,
             columnNumber: 28
         }, this));
         // Before the movies have been loaded
@@ -25126,7 +25147,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 74,
+            lineNumber: 95,
             columnNumber: 37
         }, this));
         return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
@@ -25144,17 +25165,17 @@ class MainView extends _reactDefault.default.Component {
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 83,
+                                lineNumber: 104,
                                 columnNumber: 19
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 82,
+                            lineNumber: 103,
                             columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 81,
+                        lineNumber: 102,
                         columnNumber: 15
                     }, this) : movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                             movie: movie,
@@ -25163,20 +25184,30 @@ class MainView extends _reactDefault.default.Component {
                             }
                         }, movie._id, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 88,
+                            lineNumber: 109,
                             columnNumber: 15
                         }, this)
                     )
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 78,
+                    lineNumber: 99,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                    onClick: ()=>{
+                        this.onLoggedOut();
+                    },
+                    children: "Logout"
+                }, void 0, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 113,
                     columnNumber: 9
                 }, this),
                 ");"
             ]
         }, void 0, true, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 77,
+            lineNumber: 98,
             columnNumber: 7
         }, this));
     }
@@ -25187,7 +25218,7 @@ class Button extends _reactDefault.default.Component {
             children: this.props.label
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 102,
+            lineNumber: 124,
             columnNumber: 12
         }, this));
     }
@@ -31337,7 +31368,7 @@ function LoginView(props) {
                         children: "Username:"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login.view.jsx",
-                        lineNumber: 38,
+                        lineNumber: 40,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -31345,13 +31376,13 @@ function LoginView(props) {
                         onChange: (e)=>setUsername(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/login-view/login.view.jsx",
-                        lineNumber: 39,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login.view.jsx",
-                lineNumber: 37,
+                lineNumber: 39,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
@@ -31361,7 +31392,7 @@ function LoginView(props) {
                         children: "Password:"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login.view.jsx",
-                        lineNumber: 43,
+                        lineNumber: 45,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
@@ -31369,13 +31400,13 @@ function LoginView(props) {
                         onChange: (e)=>setPassword(e.target.value)
                     }, void 0, false, {
                         fileName: "src/components/login-view/login.view.jsx",
-                        lineNumber: 44,
+                        lineNumber: 46,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login.view.jsx",
-                lineNumber: 42,
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
@@ -31385,13 +31416,13 @@ function LoginView(props) {
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/login-view/login.view.jsx",
-                lineNumber: 46,
+                lineNumber: 48,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login.view.jsx",
-        lineNumber: 36,
+        lineNumber: 38,
         columnNumber: 5
     }, this));
 }
