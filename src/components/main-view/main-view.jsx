@@ -8,7 +8,8 @@ import { LoginView } from '../login-view/login.view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 export class MainView extends React.Component {
@@ -31,6 +32,20 @@ export class MainView extends React.Component {
     }
   }
 
+  getMovies(token) {
+    axios.get('https://boiling-coast-93300.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
 
   setSelectedMovie(movie) {
@@ -84,56 +99,68 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user, register } = this.state;
-
-    /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (!user) {
-      return (
-        <Row>
-          <Col>
-            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-          </Col>
-        </Row>
-      )
-    }
-
-    // User Registration
-
-    if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
-
-    // Before the movies have been loaded
-    if (movies.length === 0) return <div className="main-view" />;
-
+    const { movies, user } = this.state;
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
+            if (!user) return (
+              <Col>
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+              </Col>
+            )
+            if (movies.length === 0) return <div className="main-view" />;
             return movies.map(m => (
               <Col md={3} key={m._id}>
                 <MovieCard movie={m} />
               </Col>
             ))
           }} />
-          <Route path="/movies/:movieId" render={({ match }) => {
+          <Route path="/register" render={() => {
+            if (user) return <Redirect to="/" />
+            return (<Col>
+              <RegistrationView />
+            </Col>
+            )
+          }} />
+
+          <Route path="/movies/:movieId" render={({ match, history }) => {
+            if (!user) return (<Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+            )
+            if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+              <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
+          <Route path="/directors/:name" render={({ match, history }) => {
+            if (!user) return (<Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+            )
+            if (movies.length === 0) return <div className="main-view" />;
+            return (<Col md={8}>
+              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+            </Col>
+            )
+          }
+          } />
+
+          <Route path="/genres/:name" render={({ match, history }) => {
+            if (!user) return (<Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+            )
+            if (movies.length === 0) return <div className="main-view" />;
+            return <Col md={8}>
+              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+            </Col>
+          }
+          } />
         </Row>
       </Router>
     );
   }
 }
-
-
-class Button extends React.Component {
-
-  render() {
-
-    return <button>{this.props.label}</button>,
-      <button onClick={() => { this.onLoggedOut() }}>Logout</button>
-
-  }
-}
-
