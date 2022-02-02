@@ -61,9 +61,29 @@ export class profileView extends React.Component {
 
     return (
       <div>
-        <UserInfo name={user.Username} email={user.Email} />
-        <FavoriteMovies favoriteMovieList={favoriteMovieList} />
-        <UpdateUser handleSubmit={handleSubmite} handleUpdate={handleUpdate} />
+        <Container>
+          <Row>
+            <Col xs={12} sm={4}>
+              <Card>
+                <Card.Body>
+                  <UserInfo name={user.Username} email={user.Email} />
+                </Card.Body>
+              </Card>
+
+            </Col>
+            <Col xs={12} sm={8}>
+              <Card>
+                <Card.Body>
+                  <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
+                </Card.Body>
+              </Card>
+
+            </Col>
+
+            <FavoriteMovies favoriteMovieList={favoriteMovieList} />
+
+          </Row>
+        </Container>
       </div>
     )
   }

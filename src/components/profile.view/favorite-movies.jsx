@@ -1,23 +1,44 @@
 import React from 'react';
+import { Figure } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import './profile-view'
 
 function FavoriteMovies({ favoriteMovieList }) {
   return (
-    <div>
-      <h2>Favorite Movies</h2>
-      {favoriteMovieList.map((movies) => {
-        return (
-          <div key={movies._id}>
-            <img src={movies.ImagePath} />
-            <Link to={`/movies/$}`}>
-              <h4>{movies.Title}</h4>
-            </Link>
-            <button variant="secondary" onClick={() => removeFav(movies._id)}>Remove from list</button>
-          </div>
-        )
-      })
-      }
-    </div>
+    <>
+      <Row>
+        <Col xs={12}>
+          <h2>Favorite Movies</h2>
+        </Col>
+      </Row>
+      <Row>
+        {favoriteMovieList.map((ImagePath, Title, _id) => {
+          return (
+            <Col xs={12} md={6} lg={3} key={movies._id}>
+              <Figure>
+                <Link to={`/movies/${_id}`}>
+                  <Figure.Image>
+                    src={ImagePath}
+                    alt={Title}
+                  </Figure.Image>
+
+                  <Figure.Caption>
+                    {Title}
+                  </Figure.Caption>
+                </Link>
+              </Figure>
+
+
+              <button variant="secondary" onClick={() => removeFav(movies._id)}>Remove from list</button>
+            </Col>
+          )
+        })
+        }
+
+      </Row>
+
+
+    </>
   )
 }
 
