@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Card, Col, Form, Row, Container } from 'react-bootstrap';
-import './user-view.scss';
+import FavoriteMovies from './favorite-movies'
+import UpdateUser from './update-user'
+import UserInfo from './user-info'
+
+
+
 
 
 export class profileView extends React.Component {
@@ -55,28 +60,12 @@ export class profileView extends React.Component {
     const { movies, user, username, email, password } = this.props;
 
     return (
-      <Container>
-        <Row className="justify-content-md-center">
-          <Col>
-            <form>
-              <label>
-                Username:
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-              </label>
-              <label>
-                Password:
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-              </label>
-              <label>
-                Email:
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-              </label>
-              <button type="submit" onClick={handleSubmit}>Submit</button>
-            </form>
-          </Col>
-        </Row>
-      </Container>
-    );
+      <div>
+        <UserInfo name={user.Username} email={user.Email} />
+        <FavoriteMovies favoriteMovieList={favoriteMovieList} />
+        <UpdateUser handleSubmit={handleSubmite} handleUpdate={handleUpdate} />
+      </div>
+    )
   }
 
 }
