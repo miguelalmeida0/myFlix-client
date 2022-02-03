@@ -32,12 +32,3 @@ export function DirectorView(props) {
   )
 }
 
-ProfileView.propTypes = {
-  user: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    FavoriteMovies: PropTypes.array
-  }).isRequired,
-  setUser: PropTypes.func.isRequired,
-}

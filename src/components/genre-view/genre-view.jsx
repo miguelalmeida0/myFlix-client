@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
 
@@ -28,11 +29,8 @@ export function GenreView(props) {
 
 GenreView.propTypes = {
   genre: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    FavoriteMovies: PropTypes.array
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
   }).isRequired,
-  setUser: PropTypes.func.isRequired,
-}
+};
 

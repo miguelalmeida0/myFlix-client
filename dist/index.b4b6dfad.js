@@ -34301,6 +34301,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
 // react-bootstap UI
@@ -34320,7 +34322,7 @@ function GenreView(props) {
                         children: "Name: "
                     }, void 0, false, {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 15,
+                        lineNumber: 16,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -34328,13 +34330,13 @@ function GenreView(props) {
                         children: genre.Name
                     }, void 0, false, {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 16,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 14,
+                lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
@@ -34344,30 +34346,27 @@ function GenreView(props) {
                     children: "Return to the Movie List"
                 }, void 0, false, {
                     fileName: "src/components/genre-view/genre-view.jsx",
-                    lineNumber: 21,
+                    lineNumber: 22,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 20,
+                lineNumber: 21,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/genre-view/genre-view.jsx",
-        lineNumber: 13,
+        lineNumber: 14,
         columnNumber: 5
     }, this));
 }
 _c = GenreView;
 GenreView.propTypes = {
-    genre: PropTypes.shape({
-        Username: PropTypes.string.isRequired,
-        Email: PropTypes.string.isRequired,
-        Password: PropTypes.string.isRequired,
-        FavoriteMovies: PropTypes.array
-    }).isRequired,
-    setUser: PropTypes.func.isRequired
+    genre: _propTypesDefault.default.shape({
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired
+    }).isRequired
 };
 var _c;
 $RefreshReg$(_c, "GenreView");
@@ -34377,7 +34376,7 @@ $RefreshReg$(_c, "GenreView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9tpci":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2"}],"9tpci":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ad4a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34500,15 +34499,6 @@ function DirectorView(props) {
     }, this));
 }
 _c = DirectorView;
-ProfileView.propTypes = {
-    user: PropTypes.shape({
-        Username: PropTypes.string.isRequired,
-        Email: PropTypes.string.isRequired,
-        Password: PropTypes.string.isRequired,
-        FavoriteMovies: PropTypes.array
-    }).isRequired,
-    setUser: PropTypes.func.isRequired
-};
 var _c;
 $RefreshReg$(_c, "DirectorView");
 
