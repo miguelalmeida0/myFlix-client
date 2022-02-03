@@ -3,10 +3,14 @@ import axios from 'axios';
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { RegistrationView } from '../registration-view/registration-view';
+import { Link } from 'react-router-dom';
 import { LoginView } from '../login-view/login.view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { ProfileView } from '../profile-view/profile-view';
+import { GenreView } from '../genre-view/genre-view';
+import { DirectorView } from '../director-view/director-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -16,9 +20,11 @@ export class MainView extends React.Component {
 
   constructor() {
     super();
+
     this.state = {
       movies: [],
-      selectedMovie: null
+      selectedMovie: null,
+      user: null
     };
   }
 
@@ -31,6 +37,7 @@ export class MainView extends React.Component {
       this.getMovies(accessToken);
     }
   }
+
 
   getMovies(token) {
     axios.get('https://driveindb.herokuapp.com/movies', {
@@ -46,7 +53,6 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
-
 
   setSelectedMovie(movie) {
     this.setState({
@@ -83,26 +89,14 @@ export class MainView extends React.Component {
     });
   }
 
-  getMovies(token) {
-    axios.get('https://driveindb.herokuapp.com/login', {
-      headers: { Authorization: `Bearer${token}` }
-    })
-      .then(response => {
-        // This will assign the result to the state
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error)
-      });
-  }
 
   render() {
     const { movies, user } = this.state;
+
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
+
           <Route exact path="/" render={() => {
             if (!user) return (
               <Col>
@@ -116,6 +110,14 @@ export class MainView extends React.Component {
               </Col>
             ))
           }} />
+
+          <Route path="/login" render={() => {
+            if (user) {
+              return <Redirect to="/" />;
+            }
+            return <LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />
+          }} />
+
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />
             return (<Col>
