@@ -26,8 +26,8 @@ export function GenreView(props) {
   )
 }
 
-ProfileView.propTypes = {
-  user: PropTypes.shape({
+GenreView.propTypes = {
+  genre: PropTypes.shape({
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
