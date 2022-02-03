@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Button, Card, Col, Form, Row, Container } from 'react-bootstrap';
 import FavoriteMovies from './favorite-movies'
 import UpdateUser from './update-user'
@@ -9,7 +11,7 @@ import UserInfo from './user-info'
 
 
 
-export class profileView extends React.Component {
+export class ProfileView extends React.Component {
   constructor(props) {
     super(props);
   }
