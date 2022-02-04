@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -12,8 +13,7 @@ import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Link } from 'react-router-dom';
-import Row from 'react-bootstrap/Row';
-import { Navbar, Nav, Form, Button, Card, CardGroup, Containter, Col, Row, Container } from 'react-bootstrap';
+import { Navbar, Form, Button, Card, Col, Row, Container } from 'react-bootstrap';
 
 
 export class MainView extends React.Component {
@@ -142,6 +142,23 @@ export class MainView extends React.Component {
             </Col>
             )
           }} />
+
+          <Route path="/profile" render={({ history }) => {
+            if (!user) {
+              return (
+                <Col>
+                  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                </Col>
+              );
+            }
+
+            return (
+              <Col md={8}>
+                <ProfileView movies={movies} onBackClick={() => history.goBack()} />
+              </Col>
+            );
+          }} />
+
 
           <Route path="/movies/:movieId" render={({ match, history }) => {
             if (!user) return (<Col>
