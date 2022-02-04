@@ -83,4 +83,13 @@ button {
   border-radius: 10px;
   border: none;
 }
+
+.movie-title {
+  color: white;
+  background-color: #8f0a0a;
+}
+
+.movie-description {
+  background-color: gray;
+}
 /*# sourceMappingURL=index.ce1d6491.css.map */

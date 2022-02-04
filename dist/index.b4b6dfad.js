@@ -25139,11 +25139,11 @@ class MainView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
                     bg: "secondary",
                     expand: "lg",
-                    className: "mb-4",
+                    className: "navbar1",
                     sticky: "top",
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Brand, {
-                            className: "ml-4",
+                            className: "navbar2",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
                                 style: {
                                     color: "white"
@@ -25168,7 +25168,7 @@ class MainView extends _reactDefault.default.Component {
                                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                         variant: "light",
                                         style: {
-                                            color: "white"
+                                            color: "black"
                                         },
                                         children: [
                                             "Profile for ",
@@ -25185,11 +25185,12 @@ class MainView extends _reactDefault.default.Component {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                    className: "logout",
                                     onClick: ()=>this.onLoggedOut()
                                     ,
                                     variant: "light",
                                     style: {
-                                        color: "white"
+                                        color: "black"
                                     },
                                     children: "Logout"
                                 }, void 0, false, {
@@ -34156,6 +34157,7 @@ class MovieCard extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Body, {
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Title, {
+                            className: "movie-title",
                             children: movie.Title
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
@@ -34163,6 +34165,7 @@ class MovieCard extends _reactDefault.default.Component {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_cardDefault.default.Text, {
+                            className: "movie-description",
                             children: movie.Description
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",

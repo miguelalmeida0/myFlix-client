@@ -95,8 +95,8 @@ export class MainView extends React.Component {
 
     return (
       <Router>
-        <Navbar bg="secondary" expand="lg" className="mb-4" sticky="top">
-          <Navbar.Brand className="ml-4">
+        <Navbar bg="secondary" expand="lg" className="navbar1" sticky="top">
+          <Navbar.Brand className="navbar2">
             <Link style={{ color: "white" }} to={'/'}>
 
             </Link>
@@ -104,9 +104,9 @@ export class MainView extends React.Component {
           {user && (
             <Navbar.Collapse className="justify-content-end">
               <Link to={`/users/${user}`} className="mr-2">
-                <Button variant="light" style={{ color: "white" }}>Profile for {user}</Button>
+                <Button variant="light" style={{ color: "black" }}>Profile for {user}</Button>
               </Link>
-              <Button onClick={() => this.onLoggedOut()} variant="light" style={{ color: "white" }}>Logout</Button>
+              <Button className="logout" onClick={() => this.onLoggedOut()} variant="light" style={{ color: "black" }}>Logout</Button>
             </Navbar.Collapse>
           )}
         </Navbar>
