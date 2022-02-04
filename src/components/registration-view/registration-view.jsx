@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
 
 export function RegistrationView(props) {
@@ -8,6 +10,33 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
+  const validate = () => {
+    let isReq = true;
+
+    if (!username) {
+      setUsernameErr('Username required');
+      isReq = false;
+    } else if (username.length < 2) {
+      setUsernameErr('Username must be at least 2 characters long');
+      isReq = false;
+    }
+    if (!password) {
+      setPasswordErr('Password required');
+      isReq = false;
+    } else if (password.length < 6) {
+      setPassword('Password must be at least 6 characters long');
+      isReq = false;
+    }
+    if (!email) {
+      setEmailErr('Email required');
+      isReq = false;
+    } else if (email.indexOf('@') === -1) {
+      setEmail('Email must be valid');
+      isReq = false;
+    }
+
+    return isReq;
+  }
 
 
   const handleSubmit = (e) => {
