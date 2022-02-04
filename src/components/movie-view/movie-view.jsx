@@ -1,22 +1,27 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from "prop-types";
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 
 export class MovieView extends React.Component {
 
-  keypressCallback(event) {
-    console.log(event.key);
-  }
-  componentDidMount() {
-    document.addEventListener('keypress', this.keypressCallback)
-  }
+  addFavoriteMovie() {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
 
-  componentWillUnmount() {
-    document.removeEventListener('keypress', this.keypressCallback);
-  }
+    axios.post(`https://https://driveindb.herokuapp.com/user/favorites/${username}/movies/${this.props.movie._id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` },
+      method: 'POST'
+    })
+      .then(response => {
+        alert(`Movie was added to the Favorite List`)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -65,3 +70,22 @@ export class MovieView extends React.Component {
     );
   }
 }
+
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birthyear: PropTypes.string,
+    }),
+    Featured: PropTypes.bool,
+    ImagePath: PropTypes.string.isRequired
+  }).isRequired,
+  onBackClick: PropTypes.func.isRequired
+};
