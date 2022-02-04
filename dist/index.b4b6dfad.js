@@ -31661,18 +31661,20 @@ MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
-        ImagePath: _propTypesDefault.default.string.isRequired,
         Genre: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string.isRequired,
             Description: _propTypesDefault.default.string.isRequired
-        }).isRequired,
+        }),
         Director: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
             Bio: _propTypesDefault.default.string.isRequired,
-            Birth: _propTypesDefault.default.string.isRequired,
-            Name: _propTypesDefault.default.string.isRequired
-        }).isRequired
+            Birthyear: _propTypesDefault.default.string,
+            Deathyear: _propTypesDefault.default.string
+        }),
+        Featured: _propTypesDefault.default.bool,
+        ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
+    onBackClick: _propTypesDefault.default.func
 };
 
   $parcel$ReactRefreshHelpers$67b2.postlude(module);
