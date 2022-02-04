@@ -6,6 +6,7 @@ export function RegistrationView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState('');
 
 
 
@@ -45,21 +46,21 @@ export function RegistrationView(props) {
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
         {/* This will display a validation error */}
-        {usernameErr && <p>{usernameErr}</p>}
+
       </Form.Group>
 
       <Form.Group>
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} minlength="8" placeholder="Your password must be 8 or more characters" />
         {/* This will display a validation error  */}
-        {passwordErr && <p>{passwordErr}</p>}
+
       </Form.Group>
 
       <Form.Group>
         <Form.Label>Email:</Form.Label>
         <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Enter email" />
         {/* This will display a validation error  */}
-        {emailErr && <p>{emailErr}</p>}
+
       </Form.Group>
 
       <Form.Group>
@@ -73,5 +74,10 @@ export function RegistrationView(props) {
 }
 
 RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
+  register: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+  }),
+  onRegistration: PropTypes.func,
 };
