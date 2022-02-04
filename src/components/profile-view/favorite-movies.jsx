@@ -3,6 +3,8 @@ import { Figure } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './profile-view'
 
+
+
 function FavoriteMovies({ favoriteMovieList }) {
   return (
     <>

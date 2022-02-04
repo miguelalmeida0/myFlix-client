@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import FavoriteMovies from '../profile-view/favorite-movies'
 
 
 export class MovieView extends React.Component {

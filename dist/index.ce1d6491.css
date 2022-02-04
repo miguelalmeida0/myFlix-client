@@ -86,10 +86,11 @@ button {
 
 .movie-title {
   color: white;
-  background-color: #8f0a0a;
+  background-color: #3b0404;
 }
 
 .movie-description {
-  background-color: gray;
+  background-color: #585555;
+  color: white;
 }
 /*# sourceMappingURL=index.ce1d6491.css.map */
