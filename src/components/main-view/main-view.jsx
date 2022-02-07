@@ -82,12 +82,7 @@ export class MainView extends React.Component {
   }
 
 
-  /* User registers */
-  onRegistration(registration) {
-    this.setState({
-      registration,
-    });
-  }
+
 
 
   render() {
@@ -138,7 +133,7 @@ export class MainView extends React.Component {
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />
             return (<Col>
-              <RegistrationView onRegistration={() => this.onRegistration} />
+              <RegistrationView />
             </Col>
             )
           }} />

@@ -8,26 +8,29 @@ export function DirectorView(props) {
   const { director } = props;
   console.log(director);
   return (
-    <div className="director-view">
-      <div className="director-name">
-        <span className="label">Name: </span>
-        <span className="value">{director.Name}</span>
+    <div class="director-font">
+      <div className="director-view">
+        <div className="director-name">
+          <span className="label">Name: </span>
+          <span className="value">{director.Name}</span>
 
+        </div>
+        <div className="director-bio">
+          <span className="label">Biography: </span>
+          <span className="value">{director.Bio}</span>
+        </div>
+        <div className="director-birthyear">
+          <span className="label">Birthday: </span>
+          <span className="value">{director.Birth}</span>
+        </div>
       </div>
-      <div className="director-bio">
-        <span className="label">Biography: </span>
-        <span className="value">{director.Bio}</span>
-      </div>
-      <div className="director-birthyear">
-        <span className="label">Year of Birth: </span>
-        <span className="value">{director.Born}</span>
-      </div>
+
       <Link to={`/`}>
         <Button className='returnButton' variant='dark'>Return to the Movie List</Button>
       </Link>
 
 
-    </div>
+    </div >
 
   )
 }
