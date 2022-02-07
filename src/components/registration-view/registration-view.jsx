@@ -27,7 +27,7 @@ export function RegistrationView(props) {
     props.onRegistration(username);
     const isReq = validate();
     if (isReq) {
-      axios.post('https://driveindb.herokuapp.com/login', {
+      axios.post('https://driveindb.herokuapp.com/users', {
         username: username,
         password: password
       })

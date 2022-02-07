@@ -25444,7 +25444,7 @@ function RegistrationView(props) {
         console.log(username, password);
         /* Sends request to the server for authentication */ props.onRegistration(username);
         const isReq = validate();
-        if (isReq) _axiosDefault.default.post('https://driveindb.herokuapp.com/login', {
+        if (isReq) _axiosDefault.default.post('https://driveindb.herokuapp.com/users', {
             username: username,
             password: password
         }).then((response)=>{
