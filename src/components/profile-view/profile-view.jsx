@@ -15,16 +15,14 @@ import UserInfo from './user-info'
 export class ProfileView extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      userDetails: [],
-      validated: false,
-      Username: '',
-      Password: '',
-      email: '',
-      Birthdate: '',
+      Username: null,
+      Password: null,
+      Email: null,
+      Birthday: null,
       FavoriteMovies: [],
-      modalState: false
-    }
+    };
 
     this.handleFieldChange = this.handleFieldChange.bind(this);
     this.updateUserDetails = this.updateUserDetails.bind(this);
@@ -39,25 +37,65 @@ export class ProfileView extends React.Component {
   }
 
   getUserDetails(token) {
-    axios.get(`https://https://driveindb.herokuapp.com/users${this.props.user}`, {
+    const Username = localStorage.getItem('user');
+    axios.get(`https://driveindb.herokuapp.com/users${this.props.user}`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(response => {
       this.setState({
         // Store the details in the appropriate state variables (separating the FavoriteMovies array for ease of use)
-        userDetails: response.data,
-        FavoriteMovies: response.data.FavoriteMovies
+        Username: response.data.Username,
+        Password: response.data.Password,
+        Email: response.data.Email,
+        Birthday: response.data.Birthday,
+        FavoriteMovies: response.data.FavoriteMovies,
       });
     }).catch(function (error) {
       console.log(error);
     });
   };
 
+  editUser = (e) => {
+    e.preventDefault();
+    const Username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    axios
+      .put(
+        `https://driveindb.herokuapp.com/users/${Username}`,
+        {
+          Username: this.state.Username,
+          Password: this.state.Password,
+          Email: this.state.Email,
+          Birthday: this.state.Birthday,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        this.setState({
+          Username: response.data.Username,
+          Password: response.data.Password,
+          Email: response.data.Email,
+          Birthday: response.data.Birthday,
+        });
+
+        localStorage.setItem('user', this.state.Username);
+        alert("Profile updated");
+        window.open('/profile', '_self');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+
   removeFavouriteMovie(_id) {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
 
     console.log(_id, '_id')
-    axios.delete(`https://https://driveindb.herokuapp.com/user/favorites/delete/${user}/movies/${movies._id}`, {
+    axios.delete(`https://driveindb.herokuapp.com/user/favorites/delete/${user}/movies/${movies._id}`, {
 
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -78,7 +116,7 @@ export class ProfileView extends React.Component {
     if (answer) {
       const token = localStorage.getItem("token");
       const user = localStorage.getItem("user");
-      axios.delete(`https://https://driveindb.herokuapp.com/user/delete/${user}`,
+      axios.delete(`https://driveindb.herokuapp.com/user/delete/${user}`,
         { headers: { Authorization: `Bearer ${token}` } }
       )
         .then(() => {
@@ -93,6 +131,14 @@ export class ProfileView extends React.Component {
     };
 
   }
+
+  setUsername(value) {
+    this.setState({
+      Username: value,
+    });
+  }
+
+
 
   render() {
     const { movies, onBackClick } = this.props;

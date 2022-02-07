@@ -34219,7 +34219,7 @@ class MovieView extends _reactDefault.default.Component {
     addFavoriteMovie() {
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('user');
-        _axiosDefault.default.post(`https://https://driveindb.herokuapp.com/user/favorites/${username}/movies/${this.props.movie._id}`, {
+        _axiosDefault.default.post(`https://driveindb.herokuapp.com/user/favorites/${username}/movies/${this.props.movie._id}`, {
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -34491,14 +34491,11 @@ class ProfileView extends _reactDefault.default.Component {
     constructor(props){
         super(props);
         this.state = {
-            userDetails: [],
-            validated: false,
-            Username: '',
-            Password: '',
-            email: '',
-            Birthdate: '',
-            FavoriteMovies: [],
-            modalState: false
+            Username: null,
+            Password: null,
+            Email: null,
+            Birthday: null,
+            FavoriteMovies: []
         };
         this.handleFieldChange = this.handleFieldChange.bind(this);
         this.updateUserDetails = this.updateUserDetails.bind(this);
@@ -34511,25 +34508,56 @@ class ProfileView extends _reactDefault.default.Component {
         this.getUserDetails(accessToken);
     }
     getUserDetails(token) {
-        _axiosDefault.default.get(`https://https://driveindb.herokuapp.com/users${this.props.user}`, {
+        const Username = localStorage.getItem('user');
+        _axiosDefault.default.get(`https://driveindb.herokuapp.com/users${this.props.user}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
             this.setState({
                 // Store the details in the appropriate state variables (separating the FavoriteMovies array for ease of use)
-                userDetails: response.data,
+                Username: response.data.Username,
+                Password: response.data.Password,
+                Email: response.data.Email,
+                Birthday: response.data.Birthday,
                 FavoriteMovies: response.data.FavoriteMovies
             });
         }).catch(function(error) {
             console.log(error);
         });
     }
+    editUser = (e)=>{
+        e.preventDefault();
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        _axiosDefault.default.put(`https://driveindb.herokuapp.com/users/${Username}`, {
+            Username: this.state.Username,
+            Password: this.state.Password,
+            Email: this.state.Email,
+            Birthday: this.state.Birthday
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            this.setState({
+                Username: response.data.Username,
+                Password: response.data.Password,
+                Email: response.data.Email,
+                Birthday: response.data.Birthday
+            });
+            localStorage.setItem('user', this.state.Username);
+            alert("Profile updated");
+            window.open('/profile', '_self');
+        }).catch(function(error) {
+            console.log(error);
+        });
+    };
     removeFavouriteMovie(_id) {
         const token = localStorage.getItem('token');
         const user = localStorage.getItem('user');
         console.log(_id, '_id');
-        _axiosDefault.default.delete(`https://https://driveindb.herokuapp.com/user/favorites/delete/${user}/movies/${movies._id}`, {
+        _axiosDefault.default.delete(`https://driveindb.herokuapp.com/user/favorites/delete/${user}/movies/${movies._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -34545,7 +34573,7 @@ class ProfileView extends _reactDefault.default.Component {
         if (answer) {
             const token = localStorage.getItem("token");
             const user = localStorage.getItem("user");
-            _axiosDefault.default.delete(`https://https://driveindb.herokuapp.com/user/delete/${user}`, {
+            _axiosDefault.default.delete(`https://driveindb.herokuapp.com/user/delete/${user}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -34558,6 +34586,11 @@ class ProfileView extends _reactDefault.default.Component {
                 console.log(error);
             });
         }
+    }
+    setUsername(value) {
+        this.setState({
+            Username: value
+        });
     }
     render() {
         const { movies , onBackClick  } = this.props;
@@ -34576,22 +34609,22 @@ class ProfileView extends _reactDefault.default.Component {
                                         email: user.Email
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 109,
+                                        lineNumber: 155,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 108,
+                                    lineNumber: 154,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 107,
+                                lineNumber: 153,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 106,
+                            lineNumber: 152,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
@@ -34604,45 +34637,45 @@ class ProfileView extends _reactDefault.default.Component {
                                         handleUpdate: handleUpdate
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 117,
+                                        lineNumber: 163,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 116,
+                                    lineNumber: 162,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 115,
+                                lineNumber: 161,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 114,
+                            lineNumber: 160,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(FavoriteMovies, {
                             favoriteMovieList: favoriteMovieList
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 123,
+                            lineNumber: 169,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 105,
+                    lineNumber: 151,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 104,
+                lineNumber: 150,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 103,
+            lineNumber: 149,
             columnNumber: 7
         }, this));
     }
@@ -34671,7 +34704,7 @@ ProfileView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","prop-types":"7wKI2","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","./favorite-movies":"dTTQH","../movie-card/movie-card":"bwuIu","./update-user":"2SBwg","./user-info":"66eot","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dTTQH":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","prop-types":"7wKI2","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./favorite-movies":"dTTQH","../movie-card/movie-card":"bwuIu","./update-user":"2SBwg","./user-info":"66eot"}],"dTTQH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
