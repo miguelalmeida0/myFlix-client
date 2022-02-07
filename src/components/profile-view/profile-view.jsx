@@ -17,18 +17,12 @@ export class ProfileView extends React.Component {
     super(props);
 
     this.state = {
-      Username: null,
-      Password: null,
-      Email: null,
-      Birthday: null,
+      username: null,
+      password: null,
+      email: null,
       FavoriteMovies: [],
     };
 
-    this.handleFieldChange = this.handleFieldChange.bind(this);
-    this.updateUserDetails = this.updateUserDetails.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.deleteUserDetails = this.deleteUserDetails.bind(this);
   }
 
   componentDidMount() {
@@ -37,16 +31,15 @@ export class ProfileView extends React.Component {
   }
 
   getUserDetails(token) {
-    const Username = localStorage.getItem('user');
-    axios.get(`https://driveindb.herokuapp.com/users${this.props.user}`, {
+    const username = localStorage.getItem('user');
+    axios.get(`https://driveindb.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(response => {
       this.setState({
         // Store the details in the appropriate state variables (separating the FavoriteMovies array for ease of use)
-        Username: response.data.Username,
-        Password: response.data.Password,
-        Email: response.data.Email,
-        Birthday: response.data.Birthday,
+        username: response.data.username,
+        password: response.data.password,
+        email: response.data.email,
         FavoriteMovies: response.data.FavoriteMovies,
       });
     }).catch(function (error) {
@@ -56,17 +49,16 @@ export class ProfileView extends React.Component {
 
   editUser = (e) => {
     e.preventDefault();
-    const Username = localStorage.getItem('user');
+    const username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
     axios
       .put(
-        `https://driveindb.herokuapp.com/users/${Username}`,
+        `https://driveindb.herokuapp.com/users/${username}`,
         {
-          Username: this.state.Username,
-          Password: this.state.Password,
-          Email: this.state.Email,
-          Birthday: this.state.Birthday,
+          username: this.state.username,
+          password: this.state.password,
+          email: this.state.email,
         },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -74,13 +66,12 @@ export class ProfileView extends React.Component {
       )
       .then((response) => {
         this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          username: response.data.username,
+          password: response.data.password,
+          email: response.data.email,
         });
 
-        localStorage.setItem('user', this.state.Username);
+        localStorage.setItem('user', this.state.username);
         alert("Profile updated");
         window.open('/profile', '_self');
       })
@@ -134,7 +125,7 @@ export class ProfileView extends React.Component {
 
   setUsername(value) {
     this.setState({
-      Username: value,
+      username: value,
     });
   }
 
@@ -142,42 +133,93 @@ export class ProfileView extends React.Component {
 
   render() {
     const { movies, onBackClick } = this.props;
-    const { FavoriteMovies, Username, Email, Birthday } = this.state;
+    const { FavoriteMovies, username, email, birthday } = this.state;
+
+    if (!username) {
+      return null;
+    }
 
     return (
+      <div className="profile_view">
 
-      <div>
-        <Container>
+        <Button variant="secondary" onClick={this.closeModal}>
+          Cancel
+        </Button>
+        <Button variant="danger" onClick={this.deleteUserDetails}>
+          Delete Profile
+        </Button>
+
+
+        <Card bg="secondary" text="light" border="light">
+          <Card.Body>
+            <Card.Title className="text-center">Profile of {this.state.userDetails.username}</Card.Title>
+            <Card.Text><span className="profile_heading">Email: </span>{this.state.userDetails.email}</Card.Text>
+
+            {this.state.userDetails.Birthdate && (
+              <Card.Text><span className="profile_heading">Date of Birth: </span>{Intl.DateTimeFormat().format(new Date(this.state.userDetails.birthday))}</Card.Text>
+            )}
+          </Card.Body>
+        </Card>
+
+        <Card bg="secondary" text="light" border="light">
+          <Card.Body>
+            <Card.Title className="text-center">Update Profile Details</Card.Title>
+
+            <Form noValidate validated={this.state.validated}>
+              <Form.Group controlId="updateFormUsername">
+                <Form.Label>Username:</Form.Label>
+
+                <Form.Control name="Username" type="text" onChange={this.handleFieldChange} required />
+
+                <Form.Control.Feedback type="invalid">Please enter a username</Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="updateFormPassword">
+                <Form.Label>Password:</Form.Label>
+                <Form.Control name="Password" type="password" onChange={this.handleFieldChange} required />
+                <Form.Control.Feedback type="invalid">Please enter a password</Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="updateFormEmail">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control name="email" type="email" onChange={this.handleFieldChange} required />
+                <Form.Control.Feedback type="invalid">Please enter a valid email address</Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="updateDateOfBirth">
+                <Form.Label>Date of Birth:</Form.Label>
+                <Form.Control name="Birthdate" type="date" onChange={this.handleFieldChange} />
+              </Form.Group>
+
+
+              <Button variant="light" style={{ color: "white" }} type="submit" onClick={this.updateUserDetails}>
+                Update Details
+              </Button>
+
+              <Button onClick={() => onBackClick(null)} variant="light" style={{ color: "white" }}>Back</Button>
+
+
+            </Form>
+          </Card.Body>
+        </Card>
+
+        <Card bg="secondary" text="light" border="light" align="center" style={{ color: "white" }}>
+          <Card.Title>{this.state.userDetails.username}'s Favorites:</Card.Title>
           <Row>
-            <Col xs={12} sm={4}>
-              <Card>
-                <Card.Body>
-                  <UserInfo name={user.Username} email={user.Email} />
-                </Card.Body>
-              </Card>
 
-            </Col>
-            <Col xs={12} sm={8}>
-              <Card>
-                <Card.Body>
-                  <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
-                </Card.Body>
-              </Card>
-
-            </Col>
-
-            <FavoriteMovies favoriteMovieList={favoriteMovieList} />
-
+            {FavoriteMoviesArray.map(movie => (
+              <Col md={4} key={movie._id} className="my-2">
+                <MovieCard movie={movie} />
+              </Col>))}
           </Row>
-        </Container>
+        </Card>
       </div>
-    )
+    );
   }
-
 }
 
 ProfileView.propTypes = {
-  movies: PropTypes.arrayOf(
+  movie: PropTypes.arrayOf(
     PropTypes.shape({
       ImagePath: PropTypes.string,
       Title: PropTypes.string.isRequired,

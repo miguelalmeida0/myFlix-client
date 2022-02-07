@@ -13,7 +13,7 @@ import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { Link } from 'react-router-dom';
-import { Navbar, Form, Button, Card, Col, Row, Container } from 'react-bootstrap';
+import { Navbar, Button, Col, Row } from 'react-bootstrap';
 
 
 export class MainView extends React.Component {
