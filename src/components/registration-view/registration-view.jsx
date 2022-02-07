@@ -12,19 +12,8 @@ export function RegistrationView(props) {
 
 
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(username, password, email, birthday);
-
-    console.log(username, password);
-
-    console.log(username, password);
-
-    /* Sends request to the server for authentication */
-
-    props.onRegistration(username);
     const isReq = validate();
     if (isReq) {
       axios.post('https://driveindb.herokuapp.com/users', {
@@ -37,50 +26,64 @@ export function RegistrationView(props) {
           window.open('/', '_self'); // this second argument '_self' is necessary so that the page will open in the current tab
         })
         .catch(e => {
-          console.log('error registering the user')
+          console.log('Error registering the user')
         });
     };
 
   }
 
   return (
-    <Form>
-      <Form.Group>
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
-        {/* This will display a validation error */}
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Card.Title>Register now!</Card.Title>
+                <Form>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
+                    {/* code added here to display validation error */}
+                    {usernameErr && <p>{usernameErr}</p>}
+                  </Form.Group>
 
-      </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Password:</Form.Label>
+                    <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} minLength="8" placeholder="Your password must be 8 or more characters" />
+                    {/* code added here to display validation error */}
+                    {passwordErr && <p>{passwordErr}</p>}
+                  </Form.Group>
 
-      <Form.Group>
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} minlength="8" placeholder="Your password must be 8 or more characters" />
-        {/* This will display a validation error  */}
+                  <Form.Group className="mb-3">
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Enter email" />
+                    {/* code added here to display validation error */}
+                    {emailErr && <p>{emailErr}</p>}
+                  </Form.Group>
 
-      </Form.Group>
+                  <Form.Group className="mb-3">
+                    <Form.Label>Birthday:</Form.Label>
+                    <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="Enter birthday" />
+                  </Form.Group>
 
-      <Form.Group>
-        <Form.Label>Email:</Form.Label>
-        <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Enter email" />
-        {/* This will display a validation error  */}
-
-      </Form.Group>
-
-      <Form.Group>
-        <Form.Label>Birthday:</Form.Label>
-        <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="Enter birthday" />
-      </Form.Group>
-
-      <Button variant="outline-light" type="submit" onClick={handleSubmit}>Submit</Button>
-    </Form>
+                  <Button variant="outline-light" type="submit" onClick={handleSubmit}>Submit</Button>
+                </Form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
+
 RegistrationView.propTypes = {
   register: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
   }),
   onRegistration: PropTypes.func,
 };
