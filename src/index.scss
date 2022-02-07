@@ -96,17 +96,34 @@ button {
 }
 
 .movie-description {
-  background-color: rgb(88, 85, 85);
-  color: lightgray;
+  background-color: #360404;
+  color: white;
 }
 
 .director-font {
-  color: lightgray;
+  color: white;
   background-color: rgb(59, 4, 4);
 }
 
 .container {
-  color: lightgray;
+  color: white;
   background-color: rgb(54, 4, 4);
+  display: grid;
+ 
+  
 }
 
+.movie-description {
+  font-style: normal;
+  font-family: 'Lato', sans-serif;
+}
+
+.genre-view {
+  font-style: normal;
+  font-family: 'Lato', sans-serif;
+}
+
+.director-font {
+  font-style: normal;
+  font-family: 'Lato', sans-serif;
+}

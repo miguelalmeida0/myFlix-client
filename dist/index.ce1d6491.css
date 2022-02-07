@@ -90,17 +90,33 @@ button {
 }
 
 .movie-description {
-  background-color: #585555;
-  color: lightgray;
+  background-color: #360404;
+  color: white;
 }
 
 .director-font {
-  color: lightgray;
+  color: white;
   background-color: #3b0404;
 }
 
 .container {
-  color: lightgray;
+  color: white;
   background-color: #360404;
+  display: grid;
+}
+
+.movie-description {
+  font-style: normal;
+  font-family: "Lato", sans-serif;
+}
+
+.genre-view {
+  font-style: normal;
+  font-family: "Lato", sans-serif;
+}
+
+.director-font {
+  font-style: normal;
+  font-family: "Lato", sans-serif;
 }
 /*# sourceMappingURL=index.ce1d6491.css.map */

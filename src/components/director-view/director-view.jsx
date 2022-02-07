@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 
 export function DirectorView(props) {
   const { director } = props;
   console.log(director);
   return (
-    <div class="director-font">
+    <div className="director-font">
       <div className="director-view">
         <div className="director-name">
           <span className="label">Name: </span>
