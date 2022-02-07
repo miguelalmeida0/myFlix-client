@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap/Button';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
-
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isReq = validate();
+    console.log(username, name, password, email)
     if (isReq) {
       axios.post('https://driveindb.herokuapp.com/users', {
         username: username,
@@ -33,50 +32,35 @@ export function RegistrationView(props) {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <CardGroup>
-            <Card>
-              <Card.Body>
-                <Card.Title>Register now!</Card.Title>
-                <Form>
-                  <Form.Group className="mb-3">
-                    <Form.Label>Username:</Form.Label>
-                    <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
-                    {/* code added here to display validation error */}
-                    {usernameErr && <p>{usernameErr}</p>}
-                  </Form.Group>
+    <div className="registration">
+      <Router>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label>Password:</Form.Label>
-                    <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} minLength="8" placeholder="Your password must be 8 or more characters" />
-                    {/* code added here to display validation error */}
-                    {passwordErr && <p>{passwordErr}</p>}
-                  </Form.Group>
+        <Form>
+          <h1 className="form-title">Register</h1>
+          <Form.Group controlId="registration-Username">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control className="username" value={username} type="text" placeholder="Create Username" onChange={e => setUsername(e.target.value)}></Form.Control>
+          </Form.Group>
+          <Form.Group controlId="registration-Password">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control className="password" value={password} type="text" placeholder="Create Password" onChange={e => setPassword(e.target.value)}></Form.Control>
+          </Form.Group>
+          <Form.Group controlId="registration-Email">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control className="email" value={email} type="email" placeholder="Enter Email" onChange={e => setEmail(e.target.value)}></Form.Control>
+          </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label>Email:</Form.Label>
-                    <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Enter email" />
-                    {/* code added here to display validation error */}
-                    {emailErr && <p>{emailErr}</p>}
-                  </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label>Birthday:</Form.Label>
-                    <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="Enter birthday" />
-                  </Form.Group>
-
-                  <Button variant="outline-light" type="submit" onClick={handleSubmit}>Submit</Button>
-                </Form>
-              </Card.Body>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container>
+          <div className="registration-button">
+            <Button variant="success link" className="registerBtn" type="submit" onClick={handleSubmit}>Register </Button>
+            <Button onClick={() => { window.location.href = "/" }} variant="primary" type="button">Login</Button>
+          </div>
+        </Form>
+      </Router>
+    </div>
   );
 }
+
 
 
 RegistrationView.propTypes = {
