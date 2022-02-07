@@ -85,16 +85,22 @@ button {
 }
 
 .movie-title {
-  color: white;
+  color: lightgray;
   background-color: #3b0404;
 }
 
 .movie-description {
   background-color: #585555;
-  color: white;
+  color: lightgray;
 }
 
 .director-font {
-  color: white;
+  color: lightgray;
+  background-color: #3b0404;
+}
+
+.container {
+  color: lightgray;
+  background-color: #360404;
 }
 /*# sourceMappingURL=index.ce1d6491.css.map */

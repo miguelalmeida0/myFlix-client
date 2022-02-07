@@ -91,15 +91,22 @@ button {
 
 
 .movie-title {
-  color: white;
+  color: lightgray;
   background-color: rgb(59, 4, 4);
 }
 
 .movie-description {
   background-color: rgb(88, 85, 85);
-  color: white
+  color: lightgray;
 }
 
 .director-font {
-  color: white;
+  color: lightgray;
+  background-color: rgb(59, 4, 4);
 }
+
+.container {
+  color: lightgray;
+  background-color: rgb(54, 4, 4);
+}
+

@@ -34326,6 +34326,12 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 88,
                                 columnNumber: 15
                             }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
+                            }, void 0, false, {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 92,
+                                columnNumber: 15
+                            }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                                 className: "movie-description",
                                 children: [
@@ -34334,7 +34340,7 @@ class MovieView extends _reactDefault.default.Component {
                                         children: "Description: "
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 93,
+                                        lineNumber: 94,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -34342,13 +34348,13 @@ class MovieView extends _reactDefault.default.Component {
                                         children: movie.Description
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 94,
+                                        lineNumber: 95,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 92,
+                                lineNumber: 93,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -34359,7 +34365,7 @@ class MovieView extends _reactDefault.default.Component {
                                         children: "Genre: "
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 97,
+                                        lineNumber: 98,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
@@ -34369,18 +34375,18 @@ class MovieView extends _reactDefault.default.Component {
                                             children: movie.Genre.Name
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 99,
+                                            lineNumber: 100,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 98,
+                                        lineNumber: 99,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 96,
+                                lineNumber: 97,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -34391,7 +34397,7 @@ class MovieView extends _reactDefault.default.Component {
                                         children: "Director: "
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 103,
+                                        lineNumber: 104,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
@@ -34401,18 +34407,18 @@ class MovieView extends _reactDefault.default.Component {
                                             children: movie.Director.Name
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 105,
+                                            lineNumber: 106,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 104,
+                                        lineNumber: 105,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 102,
+                                lineNumber: 103,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -34422,7 +34428,7 @@ class MovieView extends _reactDefault.default.Component {
                                 children: "Back"
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 109,
+                                lineNumber: 110,
                                 columnNumber: 15
                             }, this)
                         ]
@@ -34989,8 +34995,6 @@ parcelHelpers.export(exports, "GenreView", ()=>GenreView
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRouterDom = require("react-router-dom");
@@ -34999,57 +35003,91 @@ var _reactBootstrap = require("react-bootstrap");
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 function GenreView(props) {
-    const { director  } = props;
-    console.log(director);
-    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-        className: "genre-view",
-        children: [
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "genre-name",
+    const { genre  } = props;
+    console.log(genre, 'genre');
+    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
+            className: "genre-view",
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                 children: [
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                        className: "label",
-                        children: "Name: "
-                    }, void 0, false, {
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                        className: "genre-name",
+                        children: [
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                className: "label",
+                                children: "Name: "
+                            }, void 0, false, {
+                                fileName: "src/components/genre-view/genre-view.jsx",
+                                lineNumber: 17,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                className: "value",
+                                children: genre.Name
+                            }, void 0, false, {
+                                fileName: "src/components/genre-view/genre-view.jsx",
+                                lineNumber: 18,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/genre-view/genre-view.jsx",
                         lineNumber: 16,
-                        columnNumber: 9
+                        columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                        className: "value",
-                        children: genre.Name
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                        className: "genre-description",
+                        children: [
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                className: "label",
+                                children: "Description: "
+                            }, void 0, false, {
+                                fileName: "src/components/genre-view/genre-view.jsx",
+                                lineNumber: 21,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                className: "value",
+                                children: genre.Description
+                            }, void 0, false, {
+                                fileName: "src/components/genre-view/genre-view.jsx",
+                                lineNumber: 22,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/genre-view/genre-view.jsx",
+                        lineNumber: 20,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
+                        to: `/`,
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
+                            className: "returnButton",
+                            variant: "dark",
+                            children: "Return"
+                        }, void 0, false, {
+                            fileName: "src/components/genre-view/genre-view.jsx",
+                            lineNumber: 25,
+                            columnNumber: 13
+                        }, this)
                     }, void 0, false, {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 17,
-                        columnNumber: 9
+                        lineNumber: 24,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/genre-view/genre-view.jsx",
                 lineNumber: 15,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
-                to: `/`,
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                    className: "returnButton",
-                    children: "Return to the Movie List"
-                }, void 0, false, {
-                    fileName: "src/components/genre-view/genre-view.jsx",
-                    lineNumber: 22,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 21,
-                columnNumber: 7
+                columnNumber: 9
             }, this)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/genre-view/genre-view.jsx",
-        lineNumber: 14,
-        columnNumber: 5
-    }, this));
+        }, void 0, false, {
+            fileName: "src/components/genre-view/genre-view.jsx",
+            lineNumber: 14,
+            columnNumber: 7
+        }, this)
+    }, void 0, false));
 }
 _c = GenreView;
 GenreView.propTypes = {
@@ -35066,7 +35104,7 @@ $RefreshReg$(_c, "GenreView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","prop-types":"7wKI2","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9tpci":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9tpci":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ad4a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

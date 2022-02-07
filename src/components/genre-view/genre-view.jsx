@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
@@ -8,23 +7,29 @@ import { Row, Col, Button } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 export function GenreView(props) {
-  const { director } = props;
-  console.log(director);
+  const { genre } = props
+  console.log(genre, 'genre')
   return (
-    <div className="genre-view">
-      <div className="genre-name">
-        <span className="label">Name: </span>
-        <span className="value">{genre.Name}</span>
-      </div>
+    <>
+      <Row className="genre-view">
+        <Col>
+          <div className="genre-name">
+            <span className="label">Name: </span>
+            <span className="value">{genre.Name}</span>
+          </div>
+          <div className="genre-description">
+            <span className="label">Description: </span>
+            <span className="value">{genre.Description}</span>
+          </div>
+          <Link to={`/`}>
+            <Button className='returnButton' variant='dark'>Return</Button>
+          </Link>
+        </Col>
+      </Row>
 
-
-      <Link to={`/`}>
-        <Button className='returnButton'>Return to the Movie List</Button>
-      </Link>
-
-
-    </div>
+    </>
   )
+
 }
 
 GenreView.propTypes = {
