@@ -102,6 +102,7 @@ class MainView extends React.Component {
               <Link to={`/users/${user}`} className="mr-2">
                 <Button variant="light" style={{ color: "black" }}>Profile for {user}</Button>
               </Link>
+              <br></br>
               <Button className="logout" onClick={() => this.onLoggedOut()} variant="light" style={{ color: "black" }}>Logout</Button>
             </Navbar.Collapse>
           )}
