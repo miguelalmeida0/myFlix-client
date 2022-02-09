@@ -2,28 +2,33 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from "prop-types";
 import { Link, Router } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, CardGroup, Card } from 'react-bootstrap';
 
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState('');
 
+  const [UsernameErr, setUsernameErr] = useState('');
+  const [PasswordErr, setPasswordErr] = useState('');
+  const [emailErr, setemailErr] = useState('');
+  const [BirthdayErr, setBirthdayErr] = useState('');
 
   const validate = () => {
     let isReq = true;
-    if (!Username) {
+    if (!username) {
       setUsernameErr('Username Required');
       isReq = false;
-    } else if (Username.length < 6) {
+    } else if (username.length < 6) {
       setUsernameErr('Username must be 6 characters long');
       isReq = false;
     }
-    if (!Password) {
+    if (!password) {
       setPasswordErr('Password Required');
       isReq = false;
-    } else if (Password.length < 8) {
+    } else if (password.length < 8) {
       setPasswordErr('Password must be 8 characters long');
       isReq = false;
     }
@@ -75,7 +80,7 @@ export function RegistrationView(props) {
                       <Form.Label> Username: </Form.Label>
                       <Form.Control
                         type="text"
-                        value={Username}
+                        value={username}
                         onChange={e => setUsername(e.target.value)}
                         required
                         placeholder="Enter a username" />
@@ -85,7 +90,7 @@ export function RegistrationView(props) {
                       <Form.Label>Password:</Form.Label>
                       <Form.Control
                         type="password"
-                        value={Password}
+                        value={password}
                         onChange={e => setPassword(e.target.value)}
                         required
                         minLength="6"
@@ -106,11 +111,11 @@ export function RegistrationView(props) {
                       <Form.Label>Birthday:</Form.Label>
                       <Form.Control
                         type="date"
-                        value={Birthdate}
-                        onChange={e => setBirthdate(e.target.value)}
+                        value={birthday}
+                        onChange={e => setBirthday(e.target.value)}
                         required
                         placeholder="Enter your Birthday" />
-                      {BirthdateErr && <p>{BirthdateErr}</p>}
+                      {BirthdayErr && <p>{BirthdayErr}</p>}
                     </Form.Group>
                     <Button variant="light" style={{ color: "white" }} type="submit"
                       onClick={handleSubmit}>

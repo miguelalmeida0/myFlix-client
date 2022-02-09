@@ -17,6 +17,7 @@ export class ProfileView extends React.Component {
     super(props);
 
     this.state = {
+      userDetails: [],
       username: null,
       password: null,
       email: null,
@@ -134,6 +135,7 @@ export class ProfileView extends React.Component {
   render() {
     const { movies, onBackClick } = this.props;
     const { FavoriteMovies, username, email, birthday } = this.state;
+    let FavoriteMoviesArray = [];
 
     if (!username) {
       return null;
