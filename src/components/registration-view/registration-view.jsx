@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap/Button';
+import { Form, Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export function RegistrationView(props) {
