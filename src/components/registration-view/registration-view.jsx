@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -11,9 +11,39 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
 
 
+  const validate = () => {
+    let isReq = true;
+    if (!Username) {
+      setUsernameErr('Username Required');
+      isReq = false;
+    } else if (Username.length < 6) {
+      setUsernameErr('Username must be 6 characters long');
+      isReq = false;
+    }
+    if (!Password) {
+      setPasswordErr('Password Required');
+      isReq = false;
+    } else if (Password.length < 8) {
+      setPasswordErr('Password must be 8 characters long');
+      isReq = false;
+    }
+    if (!email) {
+      setemailErr('Please user valid email')
+    } else if (email.indexOf('@') === -1) {
+      setemailErr('Please user valid email')
+      isReq = false;
+    }
+    if (!Birthdate) {
+      setBirthdateErr('Please enter birthdate')
+      isReq = false;
+    }
+    return isReq;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, name, password, email)
+    const isReq = validate();
+    console.log(username, password)
     if (isReq) {
       axios.post('https://driveindb.herokuapp.com/users', {
         username: username,
@@ -32,42 +62,68 @@ export function RegistrationView(props) {
   }
 
   return (
-    <div className="registration">
-      <Router>
+    <div className="registration-view">
+      <Container fluid style={{ paddingTop: '0.75rem' }}>
+        <Row>
+          <Col>
+            <CardGroup>
+              <Card bg="secondary" text="white" border="light">
+                <Card.Body>
+                  <Card.Title>Register</Card.Title>
+                  <Form>
+                    <Form.Group>
+                      <Form.Label> Username: </Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={Username}
+                        onChange={e => setUsername(e.target.value)}
+                        required
+                        placeholder="Enter a username" />
+                      {UsernameErr && <p>{UsernameErr}</p>}
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Label>Password:</Form.Label>
+                      <Form.Control
+                        type="password"
+                        value={Password}
+                        onChange={e => setPassword(e.target.value)}
+                        required
+                        minLength="6"
+                        placeholder="Your password must be at least 6 characters" />
+                      {PasswordErr && <p>{PasswordErr}</p>}
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Label>Email:</Form.Label>
+                      <Form.Control
+                        type="text"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                        placeholder="Enter your email" />
+                      {emailErr && <p>{emailErr}</p>}
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Label>Birthday:</Form.Label>
+                      <Form.Control
+                        type="date"
+                        value={Birthdate}
+                        onChange={e => setBirthdate(e.target.value)}
+                        required
+                        placeholder="Enter your Birthday" />
+                      {BirthdateErr && <p>{BirthdateErr}</p>}
+                    </Form.Group>
+                    <Button variant="light" style={{ color: "white" }} type="submit"
+                      onClick={handleSubmit}>
+                      Submit
+                    </Button>
 
-        <Form>
-          <h1 className="form-title">Register</h1>
-          <Form.Group controlId="registration-Username">
-            <Form.Label>Username:</Form.Label>
-            <Form.Control className="username" value={username} type="text" placeholder="Create Username" onChange={e => setUsername(e.target.value)}></Form.Control>
-          </Form.Group>
-          <Form.Group controlId="registration-Password">
-            <Form.Label>Password:</Form.Label>
-            <Form.Control className="password" value={password} type="text" placeholder="Create Password" onChange={e => setPassword(e.target.value)}></Form.Control>
-          </Form.Group>
-          <Form.Group controlId="registration-Email">
-            <Form.Label>Email:</Form.Label>
-            <Form.Control className="email" value={email} type="email" placeholder="Enter Email" onChange={e => setEmail(e.target.value)}></Form.Control>
-          </Form.Group>
-
-
-          <div className="registration-button">
-            <Button variant="success link" className="registerBtn" type="submit" onClick={handleSubmit}>Register </Button>
-            <Button onClick={() => { window.location.href = "/" }} variant="primary" type="button">Login</Button>
-          </div>
-        </Form>
-      </Router>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </CardGroup>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
-
-
-
-RegistrationView.propTypes = {
-  register: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-  }),
-  onRegistration: PropTypes.func,
-};
