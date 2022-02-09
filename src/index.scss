@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+
 }
 
 $color: steelblue;
@@ -11,10 +12,11 @@ $color: steelblue;
 
 
 h1 {
- color: lightgray;
+ color: rgb(73, 9, 9);
  font-family: 'Lobster', cursive;
  text-align: center;
- font-size: 3em;
+ font-size: 4em;
+ text-shadow: 0 0 5px rgb(199, 188, 188),0 0 5px rgb(255, 255, 255),0 0 5px rgb(63, 17, 17),0 0 5px #f1f1f1,0 0 5px #f8f8f8,0 0 5px #000000;
 }
 
 h2 {
@@ -40,10 +42,11 @@ html {
   background-attachment: fixed;
   background-position: center;
   width: 50%;
-text-align: center;
-margin-right: auto;
-margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
 }
+
 
 .movie-poster {
   text-align: center;
@@ -70,25 +73,44 @@ label.form-label {
   color: white;
 }
 
+
 body {
   text-align: center;
+
 }
 
-
-
-div.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.navbar-collapse {
+  list-style-type: none;
+  display: grid;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
   
+}
+
+.logout  {
+width: 100%;
+color: white;
+
+
+}
+
+.container {
+  display: grid;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
   padding: 10px;
-
-
+  box-shadow: 0px 0px 30px 7px rgba(245, 199, 0, 0.2);
 }
 
 .form-control {
-width: 30%
+width: 40%;
+text-align: center;
+border-radius: 2em;
 }
+
+
 
 .card-img-top {
 width: 100%;
@@ -96,27 +118,39 @@ height: 30hv;
 object-fit: cover;
 border-radius: 1rem;
 margin-bottom: 1rem;
+max-width: 100%;
+
 }
 
 .card {
   position: relative;
   overflow: hidden;
-  width: 300px;
-  height: 400px;
+  flex-direction: column;
+  width: 60%;
   margin: 50px auto;
   background: #000000;
   border: 5px solid #460606;
   border-radius: 3px;
   box-shadow: 0 0 10px #b37562;
+  background-size: contain;
+  background-repeat: no-repeat;
+} 
 
-}
+
+
 .card-body {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 60%;
   width: 100%;
-  padding: 20%; 
+  padding: 20%;
+}
+
+.card-body:hover {
+  border-color: white;
+  text-shadow: 0 0 1em rgb(182, 181, 181);
+  color:#c0bfbf;
 }
 
 .value {
@@ -124,15 +158,47 @@ margin-bottom: 1rem;
   justify-content: center;
 }
 
+.btn-light {
+background-color: rgb(66, 2, 2);
+border-color: rgb(95, 86, 86);
+color: white;
+padding:0.35em 1.2em;
+}
+
+.btn-light:hover {
+ border-color: white;
+ text-shadow: 0 0 2em rgba(255,255,255,1);
+ color:#c0bfbf;
+}
+
+
 button {
   margin: 15px 0;
   justify-content: space-between;
   border-radius: 10px;
-  border: none;
+  background-color: rgb(66, 2, 2);
+  border-color: rgb(95, 86, 86);
+  color: white;
+  padding:0.35em 1.2em;
+  transition:.5s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+  overflow: hidden;
+
+}
+
+.btn:hover {
+  border-style:outset;
+  border-color: #979090;
+  color: #e6e6e6;
+  opacity: 1;
+  box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.2);
 }
 
 
-
+.value {
+  color: white;
+}
 
 .movie-title {
   color: lightgray;
@@ -150,12 +216,21 @@ button {
 }
 
 .container {
-  color: white;
+  color: rgb(34, 2, 2);
  list-style: none;
  display: flex;
  margin: auto;
- 
-  
+ background-color: rgb(0, 0, 0); 
+}
+
+.movie-genre {
+ text-align: center;
+ margin: 0 auto;
+}
+
+.movie-director {
+  text-align: center;
+  margin: 0 auto;
 }
 
 .movie-description {
@@ -168,7 +243,16 @@ button {
   font-family: 'Lato', sans-serif;
 }
 
+.genre-description {
+  color: white;
+}
 .director-font {
   font-style: normal;
   font-family: 'Lato', sans-serif;
+}
+
+@media (min-width: 600px) {
+  .column {
+    width: 50%;
+  }
 }

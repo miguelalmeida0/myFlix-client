@@ -22,6 +22,7 @@ export function GenreView(props) {
             <span className="value">{genre.Description}</span>
           </div>
           <Link to={`/`}>
+            <br></br>
             <Button className='returnButton' variant='dark'>Return</Button>
           </Link>
         </Col>

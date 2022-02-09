@@ -12,6 +12,9 @@ import { LoginView } from '../login-view/login.view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { ProfileView } from '../profile-view/profile-view';
+import { FavoriteMovies } from '../profile-view/favorite-movies';
+import { UpdateUser } from '../profile-view/update-user';
+import { UserInfo } from '../profile-view/user-info';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -100,15 +103,17 @@ class MainView extends React.Component {
           {user && (
             <Navbar.Collapse className="justify-content-end">
               <Link to={`/users/${user}`} className="mr-2">
-                <Button variant="light" style={{ color: "black" }}>Profile for {user}</Button>
+                <br></br><br></br>
+                <Button variant="light" style={{ color: "white" }}>{user}'s Profile</Button>
               </Link>
               <br></br>
-              <Button className="logout" onClick={() => this.onLoggedOut()} variant="light" style={{ color: "black" }}>Logout</Button>
+              <Button className="logout" onClick={() => this.onLoggedOut()} variant="light" style={{ color: "white" }}>Logout</Button>
+              <br></br>
             </Navbar.Collapse>
           )}
         </Navbar>
 
-        <Row className="main-view justify-content-md-center">
+        <Row >
 
           <Route exact path="/" render={() => {
 
