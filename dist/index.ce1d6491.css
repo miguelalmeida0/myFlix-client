@@ -1,10 +1,11 @@
-@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
+
 .my-flix {
   color: steelblue;
 }
+
 h1 {
   color: #490909;
   font-family: "Lobster", cursive;
@@ -12,19 +13,23 @@ h1 {
   font-size: 4em;
   text-shadow: 0 0 5px #c7bcbc, 0 0 5px white, 0 0 5px #3f1111, 0 0 5px #f1f1f1, 0 0 5px #f8f8f8, 0 0 5px #000000;
 }
+
 h2 {
   color: lightgray;
   font-family: "Lato", sans-serif;
   text-align: center;
 }
+
 p {
   color: white;
   font-family: "Lato", sans-serif;
 }
+
 .columns {
   column-count: 2;
   column-gap: 40px;
 }
+
 html {
   background-color: grey;
   background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
@@ -36,28 +41,36 @@ html {
   margin-right: auto;
   margin-left: auto;
 }
+
 .movie-poster {
   text-align: center;
 }
+
 .movie-view {
   color: white;
 }
+
 .label {
   color: white;
 }
+
 .font {
   background-color: #636363;
   align-items: center;
 }
+
 .movie-card {
   color: white;
 }
+
 label.form-label {
   color: white;
 }
+
 body {
   text-align: center;
 }
+
 .navbar-collapse {
   list-style-type: none;
   display: grid;
@@ -65,21 +78,25 @@ body {
   padding: 0;
   justify-content: center;
 }
+
 .logout {
   width: 100%;
   color: white;
 }
+
 .container {
-  display: grid;
+  display: flex;
   flex-direction: column;
   width: 100%;
   box-shadow: 0px 0px 30px 7px rgba(245, 199, 0, 0.2);
 }
+
 .form-control {
   width: 20%;
   text-align: center;
   border-radius: 2em;
 }
+
 .card-img-top {
   margin-top: 20px;
   width: 350px;
@@ -87,6 +104,7 @@ body {
   object-fit: cover;
   border-radius: 10px;
 }
+
 .card {
   position: relative;
   overflow: hidden;
@@ -96,14 +114,17 @@ body {
   background: #000000;
   background-position: right -15px;
   border: 5px solid #460606;
-  border-radius: 3px;
+  border-radius: 20px;
   box-shadow: 0 0 10px #b37562;
   background-size: contain;
   background-repeat: no-repeat;
+  align-items: center;
 }
+
 .movie-description.card-text {
   justify-content: right;
 }
+
 .card-body {
   position: relative;
   top: 0;
@@ -113,26 +134,31 @@ body {
   padding: 20%;
   justify-content: right;
 }
+
 .card-body:hover {
   border-color: white;
   text-shadow: 0 0 1em #b6b5b5;
-   color: #c0bfbf;
+  color: #c0bfbf;
 }
+
 .value {
   width: 5%;
   justify-content: center;
 }
+
 .btn-light {
   background-color: #420202;
   border-color: #5f5656;
   color: white;
   padding: 0.35em 1.2em;
 }
+
 .btn-light:hover {
   border-color: white;
   text-shadow: 0 0 2em white;
-   color: #c0bfbf;
+  color: #c0bfbf;
 }
+
 button {
   margin: 15px 0;
   justify-content: space-between;
@@ -146,6 +172,7 @@ button {
   z-index: 0;
   overflow: hidden;
 }
+
 .btn:hover {
   border-style: outset;
   border-color: #979090;
@@ -153,24 +180,56 @@ button {
   opacity: 1;
   box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.2);
 }
+
 .value {
   color: white;
 }
+
 .movie-title {
   color: lightgray;
   background-color: black;
 }
+
 .movie-poster {
   object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-.movie-description {
-  background-color: #000000;
+
+img {
+  width: 300px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+}
+
+.h5 {
   color: white;
 }
+
+#updateFormPassword {
+  width: 70px;
+}
+
+#updateFormUsername {
+  width: 70px;
+}
+
+#updateFormEmail {
+  width: 90px;
+}
+
+#updateDateOfBirth {
+  width: 150px;
+}
+
 .director-font {
   color: white;
   background-color: black;
 }
+
 .container {
   color: #220202;
   list-style: none;
@@ -178,29 +237,38 @@ button {
   margin: auto;
   background-color: black;
 }
+
 .movie-genre {
   text-align: center;
   margin: 0 auto;
 }
+
 .movie-director {
   text-align: center;
   margin: 0 auto;
 }
+
 .movie-description {
   font-style: normal;
   font-family: "Lato", sans-serif;
+  text-justify: inter-word;
+  padding: 10px;
 }
+
 .genre-view {
   font-style: normal;
   font-family: "Lato", sans-serif;
 }
+
 .genre-description {
   color: white;
 }
+
 .director-font {
   font-style: normal;
   font-family: "Lato", sans-serif;
 }
+
 @media (min-width: 600px) {
   .column {
     width: 50%;

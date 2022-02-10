@@ -76,7 +76,7 @@ label.form-label {
 
 body {
   text-align: center;
-
+ 
 }
 
 .navbar-collapse {
@@ -96,7 +96,7 @@ color: white;
 }
 
 .container {
-  display: grid;
+  display: flex;
   flex-direction: column;
   width: 100%;
   box-shadow: 0px 0px 30px 7px rgba(245, 199, 0, 0.2);
@@ -124,13 +124,15 @@ border-radius: 2em;
   flex-direction: column;
   width: 80%;
   margin: 50px auto;
+  
   background: #000000;
   background-position: right -15px;
   border: 5px solid #460606;
-  border-radius: 3px;
+  border-radius: 20px;
   box-shadow: 0 0 10px #b37562;
   background-size: contain;
   background-repeat: no-repeat;
+  align-items: center;
 } 
 
 .movie-description.card-text {
@@ -150,7 +152,7 @@ justify-content: right;
 .card-body:hover {
   border-color: white;
   text-shadow: 0 0 1em rgb(182, 181, 181);
-  color:#c0bfbf;
+  color:#c0bfbf;
 }
 
 .value {
@@ -168,7 +170,7 @@ padding:0.35em 1.2em;
 .btn-light:hover {
  border-color: white;
  text-shadow: 0 0 2em rgba(255,255,255,1);
- color:#c0bfbf;
+ color:#c0bfbf;
 }
 
 
@@ -206,15 +208,46 @@ button {
 }
 
 .movie-poster {
- 
+
   object-fit: cover;
-
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
 }
 
-.movie-description {
-  background-color: #000000;
-  color: white;
+img {
+  width: 300px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  
 }
+
+.h5 {
+color: white;
+}
+
+#updateFormPassword {
+  width: 70px;
+}
+
+#updateFormUsername {
+  width: 70px;
+}
+
+#updateFormEmail {
+  width: 90px;
+}
+
+#updateDateOfBirth {
+  width: 150px;
+}
+
+
+
+
+
 
 .director-font {
   color: white;
@@ -227,6 +260,7 @@ button {
  display: flex;
  margin: auto;
  background-color: rgb(0, 0, 0); 
+ 
 }
 
 .movie-genre {
@@ -242,12 +276,15 @@ button {
 .movie-description {
   font-style: normal;
   font-family: 'Lato', sans-serif;
+  text-justify: inter-word;
+  padding: 10px;
 }
 
 .genre-view {
   font-style: normal;
   font-family: 'Lato', sans-serif;
 }
+
 
 .genre-description {
   color: white;

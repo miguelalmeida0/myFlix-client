@@ -147,6 +147,7 @@ export class ProfileView extends React.Component {
         <Button variant="secondary" onClick={this.closeModal}>
           Cancel
         </Button>
+        <br></br>
         <Button variant="danger" onClick={this.deleteUserDetails}>
           Delete Profile
         </Button>
@@ -154,8 +155,10 @@ export class ProfileView extends React.Component {
 
         <Card bg="secondary" text="light" border="light">
           <Card.Body>
+
+
             <Card.Title className="text-center">Profile of {this.state.userDetails.username}</Card.Title>
-            <Card.Text><span className="profile_heading">Email: </span>{this.state.userDetails.email}</Card.Text>
+            <Card.Text><span className="profile_heading"></span>{this.state.userDetails.username}</Card.Text>
 
             {this.state.userDetails.Birthdate && (
               <Card.Text><span className="profile_heading">Date of Birth: </span>{Intl.DateTimeFormat().format(new Date(this.state.userDetails.birthday))}</Card.Text>
@@ -168,6 +171,7 @@ export class ProfileView extends React.Component {
             <Card.Title className="text-center">Update Profile Details</Card.Title>
 
             <Form noValidate validated={this.state.validated}>
+              <br></br>
               <Form.Group controlId="updateFormUsername">
                 <Form.Label>Username:</Form.Label>
 
@@ -193,7 +197,7 @@ export class ProfileView extends React.Component {
                 <Form.Control name="Birthdate" type="date" onChange={this.handleFieldChange} />
               </Form.Group>
 
-
+              <br></br>
               <Button variant="light" style={{ color: "white" }} type="submit" onClick={this.updateUserDetails}>
                 Update Details
               </Button>
