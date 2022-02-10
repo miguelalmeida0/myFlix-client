@@ -63,8 +63,14 @@ html {
   color: white;
 }
 
-label.form-label {
+.form-label {
   color: white;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-control {
+  width: 30%;
 }
 
 body {

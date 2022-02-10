@@ -169,9 +169,9 @@ export class ProfileView extends React.Component {
         <Card bg="secondary" text="light" border="light">
           <Card.Body>
             <Card.Title className="text-center">Update Profile Details</Card.Title>
-
+            <br></br>
             <Form noValidate validated={this.state.validated}>
-              <br></br>
+
               <Form.Group controlId="updateFormUsername">
                 <Form.Label>Username:</Form.Label>
 

@@ -34946,16 +34946,16 @@ class ProfileView extends _reactDefault.default.Component {
                                 lineNumber: 171,
                                 columnNumber: 13
                             }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 172,
+                                columnNumber: 13
+                            }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
                                 noValidate: true,
                                 validated: this.state.validated,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("br", {
-                                    }, void 0, false, {
-                                        fileName: "src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 174,
-                                        columnNumber: 15
-                                    }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
                                         controlId: "updateFormUsername",
                                         children: [

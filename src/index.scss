@@ -58,6 +58,7 @@ html {
 
 .label {
   color: white;
+ 
 }
 
 .font {
@@ -69,8 +70,14 @@ html {
   color: white;
 }
 
-label.form-label {
+.form-label {
   color: white;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-control {
+  width: 30%;
 }
 
 
@@ -293,6 +300,8 @@ color: white;
   font-style: normal;
   font-family: 'Lato', sans-serif;
 }
+
+
 
 @media (min-width: 600px) {
   .column {
