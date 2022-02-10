@@ -36885,7 +36885,7 @@ function RegistrationView(props) {
     const [UsernameErr, setUsernameErr] = _react.useState('');
     const [PasswordErr, setPasswordErr] = _react.useState('');
     const [emailErr, setemailErr] = _react.useState('');
-    const [birthdayErr, setBirthdayErr] = _react.useState('');
+    const [BirthdayErr, setBirthdayErr] = _react.useState('');
     const validate = ()=>{
         let isReq = true;
         if (!username) {
@@ -37146,7 +37146,7 @@ function RegistrationView(props) {
         columnNumber: 5
     }, this));
 }
-_s(RegistrationView, "WBwhzYgUVH4skR0Wneg1YidWJmY=");
+_s(RegistrationView, "qGhYIc6nfQA0D6y/3WxJTW1z+tA=");
 _c = RegistrationView;
 var _c;
 $RefreshReg$(_c, "RegistrationView");
