@@ -9,12 +9,12 @@ export function RegistrationView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
+
 
   const [UsernameErr, setUsernameErr] = useState('');
   const [PasswordErr, setPasswordErr] = useState('');
   const [emailErr, setemailErr] = useState('');
-  const [BirthdayErr, setBirthdayErr] = useState('');
+
 
   const validate = () => {
     let isReq = true;
@@ -38,11 +38,8 @@ export function RegistrationView(props) {
       setemailErr('Please user valid email')
       isReq = false;
     }
-    if (!Birthdate) {
-      setBirthdateErr('Please enter birthdate')
-      isReq = false;
-    }
-    return isReq;
+ 
+
   }
 
   const handleSubmit = (e) => {
@@ -57,14 +54,18 @@ export function RegistrationView(props) {
         .then(response => {
           const data = response.data;
           console.log(data);
+          alert('Registration successful, please login ! ');
           window.open('/', '_self'); // this second argument '_self' is necessary so that the page will open in the current tab
         })
-        .catch(e => {
-          console.log('Error registering the user')
+        .catch((response) => {
+          console.error(response);
+          alert('unable to register');
         });
-    };
+      console.log('User has been registred');
+    }
+  };
 
-  }
+  
 
   return (
     <div className="registration-view">
@@ -107,19 +108,10 @@ export function RegistrationView(props) {
                         placeholder="Enter your email" />
                       {emailErr && <p>{emailErr}</p>}
                     </Form.Group>
-                    <Form.Group>
-                      <Form.Label>Birthday:</Form.Label>
-                      <Form.Control
-                        type="date"
-                        value={birthday}
-                        onChange={e => setBirthday(e.target.value)}
-                        required
-                        placeholder="Enter your Birthday" />
-                      {BirthdayErr && <p>{BirthdayErr}</p>}
-                    </Form.Group>
+                   
                     <Button variant="light" style={{ color: "white" }} type="submit"
                       onClick={handleSubmit}>
-                      Submit
+                      Register
                     </Button>
 
                   </Form>

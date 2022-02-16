@@ -11,10 +11,12 @@ import Form from 'react-bootstrap/Form';
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   // Declare hook for each input
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
+  const [emailErrr, setEmailErr] = useState('');
 
   // validate user inputs
   const validate = () => {
@@ -34,9 +36,18 @@ export function LoginView(props) {
       isReq = false;
     }
 
+    if (!email) {
+      setEmailErr('Email is required');
+      isReq = false;
+    } else if (email.indexOf('@') === -1) {
+      setEmailErr('Email is not valid');
+      isReq = false;
+    }
     return isReq;
-  }
+  };
 
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     // props.onLoggedIn(username);
@@ -57,6 +68,11 @@ export function LoginView(props) {
 
   }
 
+  const handleClickRegister = () => {
+    history.push("/register");
+  }
+
+
 
 
   return (
@@ -73,8 +89,14 @@ export function LoginView(props) {
       </Form.Group>
       <br></br>
       <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
+        Login
       </Button>
+      <br></br>
+  
+      <Button
+      className="button" variant="outline-dark" type="submit" onClick={handleClickRegister}>
+      Register 
+     </Button>
       <br></br> <br></br>
     </Form>
   );
@@ -82,7 +104,7 @@ export function LoginView(props) {
 
 
 LoginView.propTypes = {
-  user: PropTypes.shape({
+ user: PropTypes.shape({
     username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
   }),
