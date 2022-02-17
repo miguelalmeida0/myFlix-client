@@ -17,6 +17,7 @@ export function RegistrationView(props) {
 
 
   const validate = () => {
+
     let isReq = true;
     if (!username) {
       setUsernameErr('Username Required');
@@ -33,16 +34,16 @@ export function RegistrationView(props) {
       isReq = false;
     }
     if (!email) {
-      setemailErr('Please user valid email')
+      setemailErr('Please enter a valid email')
     } else if (email.indexOf('@') === -1) {
-      setemailErr('Please user valid email')
+      setemailErr('Please enter a valid email')
       isReq = false;
     }
  
 
   }
 
-  const handleSubmit = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     const isReq = validate();
     console.log(username, password)
@@ -51,19 +52,19 @@ export function RegistrationView(props) {
         username: username,
         password: password
       })
-        .then(response => {
-          const data = response.data;
-          console.log(data);
-          alert('Registration successful, please login ! ');
-          window.open('/', '_self'); // this second argument '_self' is necessary so that the page will open in the current tab
-        })
-        .catch((response) => {
-          console.error(response);
-          alert('unable to register');
-        });
-      console.log('User has been registred');
-    }
-  };
+      .then(response => {
+        const data = response.data;
+        console.log(data);
+        alert('Successful registration, please login');
+        props.history.push('/');
+
+      })
+      .catch(response => {
+        console.error('response');
+        alert('unable to register');
+      });
+  }
+};
 
   
 
@@ -110,9 +111,15 @@ export function RegistrationView(props) {
                     </Form.Group>
                    
                     <Button variant="light" style={{ color: "white" }} type="submit"
-                      onClick={handleSubmit}>
+                      onClick={handleRegister}>
                       Register
                     </Button>
+
+                    <Link to='/'>
+                        <Button variant="link" className="d-flex mx-auto">
+                            Back to Login
+                        </Button>
+                    </Link>
 
                   </Form>
                 </Card.Body>
