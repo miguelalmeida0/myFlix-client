@@ -63,9 +63,48 @@ html {
   color: white;
 }
 
+.loginForm.form-label {
+  display: inline-block;
+  text-align: center;
+  padding: 4px;
+}
+
+label,
+input {
+  /* In order to define widths */
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
 .form-label {
   color: white;
-  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#formUsername.form-control {
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin: 0 auto;
+}
+
+#formPassword.form-control {
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin: 0 auto;
+}
+
+input.form-control {
+  width: 35%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-view {
   margin: 0 auto;
 }
 

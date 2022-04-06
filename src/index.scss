@@ -1,33 +1,31 @@
-*{
+* {
   box-sizing: border-box;
-
 }
 
 $color: steelblue;
 
 .my-flix {
-  color: $color
+  color: $color;
 }
 
-
-
 h1 {
- color: rgb(73, 9, 9);
- font-family: 'Lobster', cursive;
- text-align: center;
- font-size: 4em;
- text-shadow: 0 0 5px rgb(199, 188, 188),0 0 5px rgb(255, 255, 255),0 0 5px rgb(63, 17, 17),0 0 5px #f1f1f1,0 0 5px #f8f8f8,0 0 5px #000000;
+  color: rgb(73, 9, 9);
+  font-family: "Lobster", cursive;
+  text-align: center;
+  font-size: 4em;
+  text-shadow: 0 0 5px rgb(199, 188, 188), 0 0 5px rgb(255, 255, 255),
+    0 0 5px rgb(63, 17, 17), 0 0 5px #f1f1f1, 0 0 5px #f8f8f8, 0 0 5px #000000;
 }
 
 h2 {
   color: lightgray;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-align: center;
 }
 
 p {
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .columns {
@@ -47,7 +45,6 @@ html {
   margin-left: auto;
 }
 
-
 .movie-poster {
   text-align: center;
 }
@@ -58,7 +55,6 @@ html {
 
 .label {
   color: white;
- 
 }
 
 .font {
@@ -66,22 +62,57 @@ html {
   align-items: center;
 }
 
-.movie-card{
+.movie-card {
   color: white;
+}
+
+.loginForm.form-label {
+  display: inline-block;
+  text-align: center;
+  padding: 4px;
+}
+
+label,
+input {
+  /* In order to define widths */
+  display: block;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-label {
   color: white;
-    width: 80%;
-    margin: 0 auto;
+  margin: 0 auto;
+  text-align: center;
 }
 
+#formUsername.form-control {
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin: 0 auto;
+}
 
+#formPassword.form-control {
+  align-items: center;
+  justify-content: center;
+  display: block;
+  margin: 0 auto;
+}
 
+input.form-control {
+  width: 35%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-view {
+  margin: 0 auto;
+}
 
 body {
   text-align: center;
- 
 }
 
 .navbar-collapse {
@@ -90,14 +121,11 @@ body {
   margin: 0;
   padding: 0;
   justify-content: center;
-  
 }
 
-.logout  {
-width: 100%;
-color: white;
-
-
+.logout {
+  width: 100%;
+  color: white;
 }
 
 .container {
@@ -108,20 +136,18 @@ color: white;
 }
 
 .form-control {
-width: 20%;
-text-align: center;
-border-radius: 2em;
+  width: 20%;
+  text-align: center;
+  border-radius: 2em;
 }
 
 .card-img-top {
   margin-top: 20px;
-  width:  350px;
+  width: 350px;
   height: 350px;
   object-fit: cover;
   border-radius: 10px;
 }
-
-
 
 .card {
   position: relative;
@@ -129,7 +155,7 @@ border-radius: 2em;
   flex-direction: column;
   width: 80%;
   margin: 50px auto;
-  
+
   background: #000000;
   background-position: right -15px;
   border: 5px solid #460606;
@@ -138,10 +164,10 @@ border-radius: 2em;
   background-size: contain;
   background-repeat: no-repeat;
   align-items: center;
-} 
+}
 
 .movie-description.card-text {
-justify-content: right;
+  justify-content: right;
 }
 
 .card-body {
@@ -157,7 +183,7 @@ justify-content: right;
 .card-body:hover {
   border-color: white;
   text-shadow: 0 0 1em rgb(182, 181, 181);
-  color:#c0bfbf;
+  color: #c0bfbf;
 }
 
 .value {
@@ -166,18 +192,17 @@ justify-content: right;
 }
 
 .btn-light {
-background-color: rgb(66, 2, 2);
-border-color: rgb(95, 86, 86);
-color: white;
-padding:0.35em 1.2em;
+  background-color: rgb(66, 2, 2);
+  border-color: rgb(95, 86, 86);
+  color: white;
+  padding: 0.35em 1.2em;
 }
 
 .btn-light:hover {
- border-color: white;
- text-shadow: 0 0 2em rgba(255,255,255,1);
- color:#c0bfbf;
+  border-color: white;
+  text-shadow: 0 0 2em rgba(255, 255, 255, 1);
+  color: #c0bfbf;
 }
-
 
 button {
   margin: 15px 0;
@@ -186,22 +211,20 @@ button {
   background-color: rgb(66, 2, 2);
   border-color: rgb(95, 86, 86);
   color: white;
-  padding:0.35em 1.2em;
-  transition:.5s transform ease-in-out;
+  padding: 0.35em 1.2em;
+  transition: 0.5s transform ease-in-out;
   will-change: transform;
   z-index: 0;
   overflow: hidden;
-
 }
 
 .btn:hover {
-  border-style:outset;
+  border-style: outset;
   border-color: #979090;
   color: #e6e6e6;
   opacity: 1;
   box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.2);
 }
-
 
 .value {
   color: white;
@@ -213,11 +236,10 @@ button {
 }
 
 .movie-poster {
-
   object-fit: cover;
   display: block;
   margin-left: auto;
-  margin-right: auto;  
+  margin-right: auto;
 }
 
 img {
@@ -226,11 +248,10 @@ img {
   margin-left: auto;
   margin-right: auto;
   border-radius: 30px;
-  
 }
 
 .h5 {
-color: white;
+  color: white;
 }
 
 #updateFormPassword {
@@ -249,11 +270,6 @@ color: white;
   width: 150px;
 }
 
-
-
-
-
-
 .director-font {
   color: white;
   background-color: rgb(0, 0, 0);
@@ -261,16 +277,15 @@ color: white;
 
 .container {
   color: rgb(34, 2, 2);
- list-style: none;
- display: flex;
- margin: auto;
- background-color: rgb(0, 0, 0); 
- 
+  list-style: none;
+  display: flex;
+  margin: auto;
+  background-color: rgb(0, 0, 0);
 }
 
 .movie-genre {
- text-align: center;
- margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .movie-director {
@@ -280,26 +295,23 @@ color: white;
 
 .movie-description {
   font-style: normal;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   text-justify: inter-word;
   padding: 10px;
 }
 
 .genre-view {
   font-style: normal;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
-
 
 .genre-description {
   color: white;
 }
 .director-font {
   font-style: normal;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
-
-
 
 @media (min-width: 600px) {
   .column {

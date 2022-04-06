@@ -37,13 +37,6 @@ export function LoginView(props) {
       isReq = false;
     }
 
-    if (!email) {
-      setEmailErr('Email is required');
-      isReq = false;
-    } else if (email.indexOf('@') === -1) {
-      setEmailErr('Email is not valid');
-      isReq = false;
-    }
     return isReq;
   };
 
@@ -53,6 +46,7 @@ export function LoginView(props) {
     e.preventDefault();
     // props.onLoggedIn(username);
     const isReq = validate();
+    console.log(isReq)
     if (isReq) {
       axios.post('https://driveindb.herokuapp.com/login', {
         username: username,
@@ -69,9 +63,6 @@ export function LoginView(props) {
 
   }
 
-  const handleClickRegister = () => {
-    history.push("/register");
-  }
 
 
 
@@ -80,12 +71,12 @@ export function LoginView(props) {
     <Form>
       <Form.Group controlId="formUsername">
         <br></br><br></br>
-        <Form.Label>Username: </Form.Label>
+        <Form.Label className="loginForm">Username: </Form.Label>
         <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
       </Form.Group>
       <br></br>
       <Form.Group controlId="formPassword">
-        <Form.Label>Password: </Form.Label>
+        <Form.Label className="loginForm">Password: </Form.Label>
         <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
       </Form.Group>
       <br></br>
