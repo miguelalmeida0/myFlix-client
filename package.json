@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Client-side of my drive-in app",
   "main": "src/index.js",
-  "alias": { "process": false },
+  "alias": {
+    "process": false
+  },
   "scripts": {
     "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +22,6 @@
   "homepage": "https://github.com/miguelalmeida0/myFlix-client#readme",
   "dependencies": {
     "axios": "^0.25.0",
-    "parcel": "^2.3.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
