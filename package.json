@@ -2,7 +2,7 @@
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "Client-side of my drive-in app",
-  "main": "src/index.html",
+  "main": "src/index.js",
   "alias": {
     "process": false
   },
